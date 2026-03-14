@@ -2,38 +2,55 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --c1:#2A4B9B;--c2:#C0392B;--c3:#1A6B3A;--c4:#7D3C98;--c5:#1A5276;--c6:#784212;
+  --c1:#2A4B9B;--c2:#C0392B;--c3:#1A6B3A;--c4:#7D3C98;--c6:#784212;
   --bg:#FFFFFF;--bg2:#F7F8FC;--bg3:#EEF0F8;
-  --txt:#1A1A2E;--txt2:#4A4A6A;--txt3:#8888AA;
-  --border:#D8DCEA;
+  --txt:#1A1A2E;--txt2:#4A4A6A;--txt3:#8888AA;--border:#D8DCEA;
 }
 body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--txt)}
-.page{min-height:100vh}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
 
 /* NAV */
 nav{background:#fff;border-bottom:2px solid var(--c1);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100}
-.nav-logo{font-size:17px;font-weight:700;color:var(--c1);letter-spacing:.5px;font-family:Georgia,serif}
-.nav-links{display:flex;gap:1.75rem}
-.nav-links a{color:var(--txt2);text-decoration:none;font-size:13px;font-family:'Segoe UI',sans-serif;cursor:pointer;letter-spacing:.3px;transition:color .2s}
+.nav-logo{font-size:17px;font-weight:700;color:var(--c1);font-family:Georgia,serif}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--txt2);text-decoration:none;font-size:13px;font-family:'Segoe UI',sans-serif;cursor:pointer;transition:color .2s}
 .nav-links a:hover{color:var(--c1)}
+.btn-cv{background:var(--c1);color:#fff!important;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:500;transition:background .2s!important}
+.btn-cv:hover{background:#1a3578!important}
 
 /* HERO */
-.hero{background:var(--bg2);border-bottom:1px solid var(--border);padding:3.5rem 2.5rem 3rem;max-width:960px;margin:0 auto}
+.hero-outer{background:var(--bg2);border-bottom:1px solid var(--border)}
+.hero{max-width:960px;margin:0 auto;padding:3.5rem 2.5rem 3rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
 .hero-eyebrow{font-family:'Segoe UI',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--c1);margin-bottom:.75rem}
-.hero h1{font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--txt);line-height:1.2;margin-bottom:.5rem}
+.hero h1{font-size:clamp(26px,4vw,40px);font-weight:700;line-height:1.2;margin-bottom:.5rem;animation:fadeUp .8s .1s ease both}
 .hero h1 span{color:var(--c1)}
-.hero-tagline{font-size:16px;color:var(--txt2);font-style:italic;margin-bottom:1.25rem;max-width:580px}
+.hero-typewriter{font-size:15px;color:var(--txt2);font-style:italic;margin-bottom:1.25rem;min-height:26px}
+.cursor{display:inline-block;animation:blink 1s infinite;color:var(--c1)}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;font-family:'Segoe UI',sans-serif}
-.btn-p{background:var(--c1);color:#fff;border:none;padding:9px 22px;border-radius:4px;font-size:13px;cursor:pointer;font-weight:500}
-.btn-s{background:#fff;color:var(--c1);border:1.5px solid var(--c1);padding:9px 22px;border-radius:4px;font-size:13px;cursor:pointer;font-weight:500}
-.hero-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
-.hero-meta span{font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--txt3);display:flex;align-items:center;gap:5px}
+.btn-p{background:var(--c1);color:#fff;border:none;padding:9px 20px;border-radius:4px;font-size:13px;cursor:pointer;font-weight:500;transition:background .2s}
+.btn-p:hover{background:#1a3578}
+.btn-s{background:#fff;color:var(--c1);border:1.5px solid var(--c1);padding:9px 20px;border-radius:4px;font-size:13px;cursor:pointer;font-weight:500;transition:all .2s}
+.btn-dl{background:#fff;color:var(--c3);border:1.5px solid var(--c3);padding:9px 20px;border-radius:4px;font-size:13px;cursor:pointer;font-weight:500;font-family:'Segoe UI',sans-serif;text-decoration:none;display:inline-block}
+.hero-meta{display:flex;gap:1.25rem;margin-top:1.25rem;flex-wrap:wrap}
+.hero-meta span{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3)}
+.hero-photo{width:155px;height:190px;object-fit:cover;object-position:center top;border-radius:8px;border:2px solid var(--border);box-shadow:0 4px 18px rgba(42,75,155,.13);flex-shrink:0;animation:fadeIn .9s .2s ease both;opacity:0}
+
+/* STATS */
+.stats-bar{background:var(--c1);padding:1.4rem 2.5rem}
+.stats-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.stat-item{color:#fff}
+.stat-num{font-size:26px;font-weight:700;font-family:Georgia,serif}
+.stat-lbl{font-family:'Segoe UI',sans-serif;font-size:11px;opacity:.8;margin-top:2px}
 
 /* SECTIONS */
 .sec-wrap{max-width:960px;margin:0 auto;padding:3rem 2.5rem}
 .sec-header{display:flex;align-items:baseline;gap:14px;margin-bottom:.4rem}
 .sec-title{font-size:22px;font-weight:700;color:var(--txt)}
-.sec-line{flex:1;height:1px;background:var(--border);margin-left:8px}
+.sec-line{flex:1;height:1px;background:var(--border)}
 .sec-sub{font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--txt3);margin-bottom:2rem;font-style:italic}
 hr.div{border:none;border-top:1px solid var(--border)}
 
@@ -51,7 +68,8 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--border)}
 .tl-item{position:relative;margin-bottom:1.75rem}
 .tl-dot{position:absolute;left:-1.75rem;top:5px;width:12px;height:12px;border-radius:50%;background:var(--c1);border:2px solid #fff;box-shadow:0 0 0 2px var(--c1)}
-.tl-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.25rem}
+.tl-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.25rem;transition:box-shadow .2s}
+.tl-card:hover{box-shadow:0 2px 16px rgba(42,75,155,.1)}
 .tl-company{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--c2);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.2rem}
 .tl-role{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:.2rem}
 .tl-period{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3);margin-bottom:.9rem}
@@ -65,9 +83,9 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .cat-dot{width:10px;height:10px;border-radius:50%}
 .cat-name{font-family:'Segoe UI',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px}
 .cat-count{font-family:'Segoe UI',sans-serif;font-size:11px;color:var(--txt3)}
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.9rem}
-.proj-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.1rem;border-top:3px solid #ccc;transition:box-shadow .2s;cursor:default}
-.proj-card:hover{box-shadow:0 2px 12px rgba(42,75,155,.1)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.9rem}
+.proj-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.1rem;border-top:3px solid #ccc;transition:box-shadow .25s,transform .25s}
+.proj-card:hover{box-shadow:0 4px 20px rgba(42,75,155,.12);transform:translateY(-2px)}
 .proj-date{font-family:'Segoe UI',sans-serif;font-size:11px;color:var(--txt3);margin-bottom:.3rem}
 .proj-title{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:.5rem;line-height:1.4}
 .proj-pb{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt2);margin-bottom:.4rem;line-height:1.5}
@@ -79,47 +97,54 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
 .skill-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.1rem}
 .skill-card h3{font-family:'Segoe UI',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--c1);margin-bottom:.75rem;font-weight:600}
+.skill-bar-item{margin-bottom:.6rem}
+.skill-bar-label{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt2);display:flex;justify-content:space-between;margin-bottom:3px}
+.skill-bar-track{background:var(--bg3);border-radius:3px;height:5px;overflow:hidden}
+.skill-bar-fill{height:100%;border-radius:3px;background:var(--c1);width:0;transition:width 1.2s ease}
 .skill-pills{display:flex;flex-wrap:wrap;gap:5px}
 .spill{font-family:'Segoe UI',sans-serif;font-size:11px;padding:3px 9px;border-radius:3px;background:var(--bg2);color:var(--txt2);border:1px solid var(--border)}
 
 /* FORMATION */
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.edu-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--c4);border-radius:4px;padding:1.25rem}
+.edu-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--c4);border-radius:4px;padding:1.25rem;transition:box-shadow .2s}
+.edu-card:hover{box-shadow:0 2px 16px rgba(125,60,152,.1)}
 .edu-school{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--c4);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.25rem}
 .edu-degree{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:.25rem}
 .edu-period{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3)}
 
 /* ATOUTS */
 .atouts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
-.atout-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.25rem;text-align:center}
+.atout-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.25rem;text-align:center;transition:transform .2s,box-shadow .2s}
+.atout-card:hover{transform:translateY(-3px);box-shadow:0 4px 16px rgba(42,75,155,.08)}
 .atout-icon{font-size:26px;margin-bottom:.5rem}
 .atout-card h3{font-family:'Segoe UI',sans-serif;font-size:13px;font-weight:600;color:var(--c1);margin-bottom:.35rem}
 .atout-card p{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt2);line-height:1.6}
 
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.contact-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.1rem;display:flex;align-items:center;gap:12px;font-family:'Segoe UI',sans-serif}
+.contact-item{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.1rem;display:flex;align-items:center;gap:12px;font-family:'Segoe UI',sans-serif;transition:border-color .2s}
+.contact-item:hover{border-color:var(--c1)}
 .c-icon{width:38px;height:38px;border-radius:4px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;border:1px solid var(--border)}
 .c-label{font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
 .c-val{font-size:13px;font-weight:600;color:var(--txt)}
 .c-val a{color:var(--c1);text-decoration:none}
 
-footer{background:var(--bg2);border-top:1px solid var(--border);text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3)}
-
-/* FILTER BAR */
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem;font-family:'Segoe UI',sans-serif}
 .fbtn{font-size:12px;padding:5px 14px;border-radius:3px;border:1px solid var(--border);background:#fff;color:var(--txt2);cursor:pointer;transition:all .2s}
 .fbtn.active,.fbtn:hover{background:var(--c1);color:#fff;border-color:var(--c1)}
 
-@media(max-width:620px){
+footer{background:var(--bg2);border-top:1px solid var(--border);text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3)}
+
+@media(max-width:640px){
+  .hero{grid-template-columns:1fr}.hero-photo{display:none}
   .about-grid,.edu-grid,.contact-grid{grid-template-columns:1fr}
-  .hero{padding:2.5rem 1.25rem 2rem}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  nav{padding:0 1rem}.nav-links a:not(.btn-cv){display:none}
   .sec-wrap{padding:2rem 1.25rem}
 }
 </style>
 
-<div class="page">
-
+<div>
 <nav>
   <span class="nav-logo">S. D. GADIAGA</span>
   <div class="nav-links">
@@ -129,57 +154,62 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
     <a onclick="s('skills')">Compétences</a>
     <a onclick="s('formation')">Formation</a>
     <a onclick="s('contact')">Contact</a>
+    <a class="btn-cv" href="CV_Serigne_Dame_GADIAGA.pdf" download>⬇ CV</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div style="background:var(--bg2);border-bottom:1px solid var(--border)">
-<div class="hero">
-  <div class="hero-eyebrow">Étudiant Ingénieur · Polytech Lyon</div>
-  <h1>Serigne Dame <span>GADIAGA</span></h1>
-  <p class="hero-tagline">Mathématiques Appliquées & Modélisation — spécialisation Data Science, Machine Learning & Analyse Prédictive</p>
-  <div class="hero-btns">
-    <button class="btn-p" onclick="s('contact')">Me contacter</button>
-    <button class="btn-s" onclick="s('projects')">Voir mes projets</button>
+<div class="hero-outer">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Étudiant Ingénieur · Polytech Lyon</div>
+      <h1>Serigne Dame <span>GADIAGA</span></h1>
+      <p class="hero-typewriter" id="typewriter"><span class="cursor">|</span></p>
+      <div class="hero-btns">
+        <button class="btn-p" onclick="s('contact')">Me contacter</button>
+        <button class="btn-s" onclick="s('projects')">Voir mes projets</button>
+        <a class="btn-dl" href="CV_Serigne_Dame_GADIAGA.pdf" download>⬇ Télécharger mon CV</a>
+      </div>
+      <div class="hero-meta">
+        <span>📍 Lyon, France</span>
+        <span>🎓 Polytech Lyon · 4ᵉ année</span>
+        <span>🔍 Alternance dès sept. 2026</span>
+      </div>
+    </div>
+    <img src="photo.jpg" alt="Serigne Dame Gadiaga" class="hero-photo">
   </div>
-  <div class="hero-meta">
-    <span>📍 Lyon, France</span>
-    <span>🎓 Polytech Lyon · 4ᵉ année</span>
-    <span>🔍 Alternance dès sept. 2026 · 2 sem/2 sem</span>
-  </div>
-</div>
 </div>
 
-<!-- À PROPOS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num" data-target="20">0</div><div class="stat-lbl">Projets académiques</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="2">0</div><div class="stat-lbl">Stages en entreprise</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="6">0</div><div class="stat-lbl">Langages maîtrisés</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="4">0</div><div class="stat-lbl">Années de formation</div></div>
+  </div>
+</div>
+
 <div class="sec-wrap" id="about">
-  <div class="sec-header"><span class="sec-title">À propos</span><div class="sec-line"></div></div>
-  <p class="sec-sub">Profil & parcours</p>
+  <div class="sec-header fade-up"><span class="sec-title">À propos</span><div class="sec-line"></div></div>
+  <p class="sec-sub fade-up">Profil & parcours</p>
   <div class="about-grid">
-    <div class="about-main">
+    <div class="about-main fade-up">
       <p>Étudiant en 4ᵉ année de cycle ingénieur à Polytech Lyon (Mathématiques Appliquées & Modélisation), je me spécialise dans la data science, le machine learning et l'analyse prédictive. Mon parcours allie rigueur mathématique — issu de CPGE MPSI — et compétences techniques solides en Python, R, SAS et SQL.</p>
       <p style="margin-top:.85rem">J'ai conduit des projets dans des domaines variés : analyse climatique sur données Météo-France, prédiction juridique, NLP, computer vision, géospatiale et modélisation mathématique. Je recherche une alternance d'un an à partir de septembre 2026 (rythme 2 semaines / 2 semaines).</p>
     </div>
     <div class="about-side">
-      <div class="about-side-card">
-        <h3>Langues</h3>
-        <p>🇫🇷 Français — C2 (maternel)<br>🇬🇧 Anglais — B2 (avancé)</p>
-      </div>
-      <div class="about-side-card">
-        <h3>Centres d'intérêt</h3>
-        <p>⚽ Football<br>🔤 Scrabble<br>📊 Projets data personnels</p>
-      </div>
+      <div class="about-side-card fade-up"><h3>Langues</h3><p>🇫🇷 Français — C2 (maternel)<br>🇬🇧 Anglais — B2 (avancé)</p></div>
+      <div class="about-side-card fade-up"><h3>Centres d'intérêt</h3><p>⚽ Football<br>🔤 Scrabble<br>📊 Projets data personnels</p></div>
     </div>
   </div>
 </div>
 
 <hr class="div">
 
-<!-- EXPÉRIENCES -->
 <div class="sec-wrap" id="exp">
-  <div class="sec-header"><span class="sec-title">Expériences professionnelles</span><div class="sec-line"></div></div>
-  <p class="sec-sub">Stages et missions</p>
+  <div class="sec-header fade-up"><span class="sec-title">Expériences professionnelles</span><div class="sec-line"></div></div>
+  <p class="sec-sub fade-up">Stages et missions</p>
   <div class="timeline">
-    <div class="tl-item">
+    <div class="tl-item fade-up">
       <div class="tl-dot"></div>
       <div class="tl-card">
         <div class="tl-company">Sodiaal Union · Lyon</div>
@@ -187,13 +217,13 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
         <div class="tl-period">Août 2025 — Février 2026</div>
         <ul class="tl-bullets">
           <li>Revue bibliographique sur le stress thermique et la production laitière (indices THI, ETIC, CCI, HLI)</li>
-          <li>Traitement de données climatiques Météo-France (SAFRAN, ~8 Go) et collecte laitière interne (~9 000 éleveurs)</li>
+          <li>Traitement de données climatiques Météo-France (SAFRAN, ~8 Go) et collecte laitière (~9 000 éleveurs)</li>
           <li>Analyse statistique de l'impact du changement climatique sur le bien-être animal</li>
-          <li>Modélisation prédictive ML du risque climatique sur l'élevage laitier à l'horizon 2050 (scénarios DRIAS)</li>
+          <li>Modélisation prédictive ML du risque climatique à l'horizon 2050 (scénarios DRIAS)</li>
         </ul>
       </div>
     </div>
-    <div class="tl-item">
+    <div class="tl-item fade-up">
       <div class="tl-dot" style="background:var(--c3);box-shadow:0 0 0 2px var(--c3)"></div>
       <div class="tl-card">
         <div class="tl-company" style="color:var(--c3)">Legal Quantum · Lyon</div>
@@ -212,12 +242,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
 
 <hr class="div">
 
-<!-- PROJETS -->
 <div class="sec-wrap" id="projects">
-  <div class="sec-header"><span class="sec-title">Projets académiques</span><div class="sec-line"></div></div>
-  <p class="sec-sub">Classés par domaine — cliquer sur un filtre pour afficher une catégorie</p>
-
-  <div class="filter-bar" id="filters">
+  <div class="sec-header fade-up"><span class="sec-title">Projets académiques</span><div class="sec-line"></div></div>
+  <p class="sec-sub fade-up">Classés par domaine</p>
+  <div class="filter-bar">
     <button class="fbtn active" onclick="filterCat('all',this)">Tous</button>
     <button class="fbtn" onclick="filterCat('ml',this)">Machine Learning</button>
     <button class="fbtn" onclick="filterCat('dl',this)">Deep Learning</button>
@@ -226,78 +254,44 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
     <button class="fbtn" onclick="filterCat('num',this)">Méthodes num.</button>
     <button class="fbtn" onclick="filterCat('sas',this)">SAS / Analytics</button>
   </div>
-
   <div id="proj-container"></div>
 </div>
 
 <hr class="div">
 
-<!-- COMPÉTENCES -->
 <div class="sec-wrap" id="skills">
-  <div class="sec-header"><span class="sec-title">Compétences</span><div class="sec-line"></div></div>
-  <p class="sec-sub">Technologies & domaines de maîtrise</p>
+  <div class="sec-header fade-up"><span class="sec-title">Compétences</span><div class="sec-line"></div></div>
+  <p class="sec-sub fade-up">Technologies & niveaux de maîtrise</p>
   <div class="skills-grid">
-    <div class="skill-card">
+    <div class="skill-card fade-up">
       <h3>Langages</h3>
-      <div class="skill-pills">
-        <span class="spill">Python</span><span class="spill">R</span><span class="spill">SQL</span>
-        <span class="spill">SAS</span><span class="spill">MATLAB</span><span class="spill">DAX</span>
-      </div>
+      <div class="skill-bar-item"><div class="skill-bar-label"><span>Python</span><span>90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div></div>
+      <div class="skill-bar-item"><div class="skill-bar-label"><span>R</span><span>85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div></div>
+      <div class="skill-bar-item"><div class="skill-bar-label"><span>SQL</span><span>80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div></div>
+      <div class="skill-bar-item"><div class="skill-bar-label"><span>SAS</span><span>75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="75"></div></div></div>
+      <div class="skill-bar-item"><div class="skill-bar-label"><span>MATLAB</span><span>70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div></div>
     </div>
-    <div class="skill-card">
-      <h3>ML / IA</h3>
-      <div class="skill-pills">
-        <span class="spill">Scikit-learn</span><span class="spill">Keras</span><span class="spill">PyTorch</span>
-        <span class="spill">XGBoost</span><span class="spill">Random Forest</span><span class="spill">SVM</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>NLP & Vision</h3>
-      <div class="skill-pills">
-        <span class="spill">TF-IDF</span><span class="spill">Embeddings</span><span class="spill">CNN</span>
-        <span class="spill">Naïve Bayes</span><span class="spill">recvoc</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Statistiques</h3>
-      <div class="skill-pills">
-        <span class="spill">ARIMA/SARIMA</span><span class="spill">Bayes</span>
-        <span class="spill">Chaînes de Markov</span><span class="spill">EDO</span>
-        <span class="spill">Séries temporelles</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Données & BDD</h3>
-      <div class="skill-pills">
-        <span class="spill">PostgreSQL</span><span class="spill">data.table</span>
-        <span class="spill">Pandas</span><span class="spill">ETL</span><span class="spill">GeoDataFrame</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <h3>Visualisation</h3>
-      <div class="skill-pills">
-        <span class="spill">Power BI</span><span class="spill">Metabase</span>
-        <span class="spill">Matplotlib</span><span class="spill">Seaborn</span>
-        <span class="spill">Folium</span>
-      </div>
-    </div>
+    <div class="skill-card fade-up"><h3>ML / IA</h3><div class="skill-pills"><span class="spill">Scikit-learn</span><span class="spill">Keras</span><span class="spill">PyTorch</span><span class="spill">XGBoost</span><span class="spill">Random Forest</span><span class="spill">SVM</span></div></div>
+    <div class="skill-card fade-up"><h3>NLP & Vision</h3><div class="skill-pills"><span class="spill">TF-IDF</span><span class="spill">Embeddings</span><span class="spill">CNN</span><span class="spill">Naïve Bayes</span><span class="spill">NLTK</span></div></div>
+    <div class="skill-card fade-up"><h3>Statistiques</h3><div class="skill-pills"><span class="spill">ARIMA/SARIMA</span><span class="spill">Bayes</span><span class="spill">Chaînes de Markov</span><span class="spill">EDO</span><span class="spill">Séries temporelles</span></div></div>
+    <div class="skill-card fade-up"><h3>Données & BDD</h3><div class="skill-pills"><span class="spill">PostgreSQL</span><span class="spill">data.table</span><span class="spill">Pandas</span><span class="spill">ETL</span><span class="spill">GeoDataFrame</span></div></div>
+    <div class="skill-card fade-up"><h3>Visualisation</h3><div class="skill-pills"><span class="spill">Power BI</span><span class="spill">Metabase</span><span class="spill">Matplotlib</span><span class="spill">Seaborn</span><span class="spill">Folium</span></div></div>
   </div>
 </div>
 
 <hr class="div">
 
-<!-- FORMATION -->
 <div class="sec-wrap" id="formation">
-  <div class="sec-header"><span class="sec-title">Formation</span><div class="sec-line"></div></div>
-  <p class="sec-sub">Parcours académique</p>
+  <div class="sec-header fade-up"><span class="sec-title">Formation</span><div class="sec-line"></div></div>
+  <p class="sec-sub fade-up">Parcours académique</p>
   <div class="edu-grid">
-    <div class="edu-card">
+    <div class="edu-card fade-up">
       <div class="edu-school">Polytech Lyon</div>
       <div class="edu-degree">Cycle Ingénieur — Mathématiques Appliquées & Modélisation</div>
       <div class="edu-period">Sept. 2023 — Juil. 2027 · Lyon, France</div>
       <p style="font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3);margin-top:.5rem">Spécialisation ML, analyse de données, modélisation numérique, séries temporelles</p>
     </div>
-    <div class="edu-card" style="border-left-color:var(--c6)">
+    <div class="edu-card fade-up" style="border-left-color:var(--c6)">
       <div class="edu-school" style="color:var(--c6)">ESMT-ESIGELEC — Collège Sacré Cœur</div>
       <div class="edu-degree">Classes Préparatoires Scientifiques — MPSI</div>
       <div class="edu-period">Sept. 2021 — Sept. 2023 · Dakar, Sénégal</div>
@@ -308,143 +302,100 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
 
 <hr class="div">
 
-<!-- ATOUTS -->
 <div class="sec-wrap" id="atouts">
-  <div class="sec-header"><span class="sec-title">Atouts</span><div class="sec-line"></div></div>
-  <p class="sec-sub">Ce qui me distingue</p>
+  <div class="sec-header fade-up"><span class="sec-title">Atouts</span><div class="sec-line"></div></div>
+  <p class="sec-sub fade-up">Ce qui me distingue</p>
   <div class="atouts-grid">
-    <div class="atout-card">
-      <div class="atout-icon">🚀</div>
-      <h3>Autonomie</h3>
-      <p>Conduite de projets de A à Z avec supervision minimale</p>
-    </div>
-    <div class="atout-card">
-      <div class="atout-icon">🤝</div>
-      <h3>Travail en équipe</h3>
-      <p>Collaboration avec équipes multidisciplinaires d'ingénieurs et chercheurs</p>
-    </div>
-    <div class="atout-card">
-      <div class="atout-icon">📐</div>
-      <h3>Rigueur scientifique</h3>
-      <p>Culture de la preuve, CPGE MPSI + cycle ingénieur</p>
-    </div>
-    <div class="atout-card">
-      <div class="atout-icon">🌍</div>
-      <h3>Adaptabilité</h3>
-      <p>Parcours international, aisance dans des contextes variés</p>
-    </div>
+    <div class="atout-card fade-up"><div class="atout-icon">🚀</div><h3>Autonomie</h3><p>Conduite de projets de A à Z avec supervision minimale</p></div>
+    <div class="atout-card fade-up"><div class="atout-icon">🤝</div><h3>Travail en équipe</h3><p>Collaboration avec équipes multidisciplinaires</p></div>
+    <div class="atout-card fade-up"><div class="atout-icon">📐</div><h3>Rigueur scientifique</h3><p>Culture de la preuve, CPGE MPSI + cycle ingénieur</p></div>
+    <div class="atout-card fade-up"><div class="atout-icon">🌍</div><h3>Adaptabilité</h3><p>Parcours international, aisance dans des contextes variés</p></div>
   </div>
 </div>
 
 <hr class="div">
 
-<!-- CONTACT -->
 <div class="sec-wrap" id="contact">
-  <div class="sec-header"><span class="sec-title">Contact</span><div class="sec-line"></div></div>
-  <p class="sec-sub">Disponible pour une alternance dès septembre 2026</p>
+  <div class="sec-header fade-up"><span class="sec-title">Contact</span><div class="sec-line"></div></div>
+  <p class="sec-sub fade-up">Disponible pour une alternance dès septembre 2026</p>
   <div class="contact-grid">
-    <div class="contact-item">
-      <div class="c-icon">📧</div>
-      <div><div class="c-label">Email</div><div class="c-val"><a href="mailto:gadiaga00dame@gmail.com">gadiaga00dame@gmail.com</a></div></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-icon">📱</div>
-      <div><div class="c-label">Téléphone</div><div class="c-val">+33 7 67 54 50 88</div></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-icon">📍</div>
-      <div><div class="c-label">Localisation</div><div class="c-val">Lyon, France</div></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-icon">💼</div>
-      <div><div class="c-label">LinkedIn</div><div class="c-val"><a href="https://www.linkedin.com/in/serigne-dame-gadiaga/" target="_blank">serigne-dame-gadiaga</a></div></div>
-    </div>
+    <div class="contact-item fade-up"><div class="c-icon">📧</div><div><div class="c-label">Email</div><div class="c-val"><a href="mailto:gadiaga00dame@gmail.com">gadiaga00dame@gmail.com</a></div></div></div>
+    <div class="contact-item fade-up"><div class="c-icon">📱</div><div><div class="c-label">Téléphone</div><div class="c-val">+33 7 67 54 50 88</div></div></div>
+    <div class="contact-item fade-up"><div class="c-icon">📍</div><div><div class="c-label">Localisation</div><div class="c-val">Lyon, France</div></div></div>
+    <div class="contact-item fade-up"><div class="c-icon">💼</div><div><div class="c-label">LinkedIn</div><div class="c-val"><a href="https://www.linkedin.com/in/serigne-dame-gadiaga/" target="_blank">serigne-dame-gadiaga</a></div></div></div>
   </div>
-  <div style="margin-top:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.1rem;font-family:'Segoe UI',sans-serif">
+  <div style="margin-top:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.1rem;font-family:'Segoe UI',sans-serif" class="fade-up">
     <p style="font-size:12px;color:var(--txt3);margin-bottom:.3rem">Référence académique disponible sur demande</p>
     <p style="font-size:13px;color:var(--txt2)">Prof. Ciuperca Ionel Sorinel — Responsable MAM, Polytech Lyon · <a href="mailto:ionel.cuiperca@univ-lyon1.fr" style="color:var(--c1);text-decoration:none">ionel.cuiperca@univ-lyon1.fr</a></p>
   </div>
 </div>
 
 <footer>© 2026 Serigne Dame Gadiaga · Polytech Lyon · Lyon, France</footer>
-
 </div>
 
 <script>
 function s(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 
-const CATS = {
-  ml:{label:'Machine Learning',color:'#2A4B9B'},
-  dl:{label:'Deep Learning',color:'#C0392B'},
-  nlp:{label:'NLP / Text Mining',color:'#7D3C98'},
-  geo:{label:'Géospatial',color:'#1A6B3A'},
-  num:{label:'Méthodes Numériques',color:'#784212'},
-  sas:{label:'SAS / Analytics',color:'#1A5276'}
-};
+const phrases=['Data Scientist en formation','Spécialiste Machine Learning','Analyste de données','Étudiant Ingénieur · Polytech Lyon','Disponible en alternance · Sept. 2026'];
+let pi=0,ci=0,del=false;
+const tw=document.getElementById('typewriter');
+function type(){
+  const p=phrases[pi];
+  if(!del){ci++;tw.innerHTML=p.slice(0,ci)+'<span class="cursor">|</span>';if(ci===p.length){del=true;setTimeout(type,1800);return}setTimeout(type,60);}
+  else{ci--;tw.innerHTML=p.slice(0,ci)+'<span class="cursor">|</span>';if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,400);return}setTimeout(type,30);}
+}
+setTimeout(type,800);
 
-const PROJS = [
-  {cat:'ml',date:'Mars–Juin 2025',title:'Qualité de l\'air : analyse & prévision des polluants urbains',pb:'Anticiper les pics de pollution en milieu urbain pour aide à la décision.',result:'Jeu de notebooks comparant les stratégies de prévision (MAE/RMSE/MAPE), avec cartes et courbes explicatives.',skills:['ARIMA','Prophet','GBM','Folium','Feature engineering','Python']},
-  {cat:'ml',date:'Juin 2024',title:'Prédiction d\'élections présidentielles',pb:'Estimer le score/issue d\'élections à partir d\'historiques, variables socio-démographiques et texte.',result:'Pipeline réplicable + notebook clair pour comparer les stratégies de modélisation.',skills:['LogReg','SVM','Random Forest','ROC/AUC','Python']},
-  {cat:'ml',date:'Mai 2024',title:'Pricing de l\'immobilier (Housing Prices)',pb:'Prédire les prix de vente à partir de caractéristiques structurées.',result:'Base solide pour un modèle de pricing reproductible.',skills:['Ridge','Lasso','ElasticNet','XGBoost','Pipeline','Python']},
-  {cat:'ml',date:'Jan.–Fév. 2024',title:'Classification Iris de Fisher',pb:'Classifier des espèces d\'iris à partir de mesures.',result:'Benchmark pédagogique clair pour expliquer les compromis biais/variance.',skills:['KNN','SVM','Arbre de décision','GridSearchCV','Python']},
-  {cat:'ml',date:'Déc. 2023–Jan. 2024',title:'Sur-apprentissage & échantillonnage',pb:'Comprendre l\'overfitting et l\'impact des splits/train sizes.',result:'Recommandations pratiques pour choisir la taille d\'échantillon et le modèle.',skills:['Learning curves','Validation croisée','Régularisation','Python']},
-  {cat:'ml',date:'Août–Sept. 2025',title:'SAS : Assurance — classification/risque',pb:'Prédire un événement (sinistre, souscription ou churn).',result:'Scorecard simple et interprétable avec courbes Gini.',skills:['Régression logistique','Boosting','AUC/Gini/KS','SAS','Python']},
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.skill-bar-fill').forEach(b=>{b.style.width=b.dataset.w+'%'});
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
-  {cat:'dl',date:'Jan. 2024',title:'CNN — Fashion MNIST (Zalando)',pb:'Classer des images de vêtements avec CNN vs modèles classiques.',result:'Amélioration nette vs baseline, code reproductible.',skills:['CNN','PyTorch','Keras','Dropout','Batch norm','TensorBoard']},
-  {cat:'dl',date:'Nov. 2023',title:'Deep Learning : Introduction aux CNN',pb:'Construire une "boîte à outils" pédagogique pour CNN.',result:'Support de référence pour expliquer les CNN à des débutants.',skills:['PyTorch','Keras','Convolution','Visualisation activations','Hyperparamétrage']},
-  {cat:'dl',date:'2024',title:'Computer Vision — Classification d\'images',pb:'Classification d\'images par réseaux convolutifs (CNN).',result:'Évaluation complète (précision, rappel, F1-score).',skills:['Keras','CNN','Python']},
+const sObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('[data-target]').forEach(el=>{let n=0;const t=parseInt(el.dataset.target);const step=()=>{n+=Math.ceil(t/40);if(n>=t){el.textContent=t+'+';return}el.textContent=n;requestAnimationFrame(step)};step()});sObs.disconnect();}});
+},{threshold:0.5});
+if(document.querySelector('.stats-bar'))sObs.observe(document.querySelector('.stats-bar'));
 
-  {cat:'nlp',date:'Juil.–Août 2025',title:'Exploration d\'opinions & détection de polarité',pb:'Analyser le sentiment (positif/négatif) dans des textes.',result:'Classifieur baseline fiable et facile à déployer.',skills:['TF-IDF','Embeddings','Naïve Bayes','LogReg','SVM','Python']},
-  {cat:'nlp',date:'Août 2025',title:'Reconnaissance vocale (prototype)',pb:'Esquisser une chaîne "audio → texte"/commande.',result:'Base technique pour un futur projet ASR léger.',skills:['recvoc','I/O audio','Segmentation','Python']},
-  {cat:'nlp',date:'2025',title:'Détection de commentaires malveillants (spam)',pb:'Classifier des commentaires spam via NLP.',result:'Modèle Random Forest avec validation croisée.',skills:['NLP','TF-IDF','Random Forest','Python']},
-
-  {cat:'geo',date:'Avr.–Mai 2025',title:'Géodonnées — Classification & cartographie',pb:'Analyser des phénomènes spatiaux (clustering, classes, cartes thématiques).',result:'Notebook "étude géo + modèles" pour cas d\'examen.',skills:['GeoDataFrame','Folium','Projections/CRS','Jointures spatiales','Python']},
-  {cat:'geo',date:'Mai 2025',title:'Localisation des cinémas (Geo data)',pb:'Manipuler un jeu géographique (points/attributs) pour analyses simples.',result:'Cartes lisibles et réutilisables pour d\'autres POI.',skills:['Projection CRS','Cartes de densité','Folium','Python']},
-
-  {cat:'num',date:'Mai 2025–Juin 2025',title:'Dynamiques de populations proies–prédateurs avec ressource',pb:'Comprendre les régimes (croissance, oscillations) d\'un système avec ressource limitée.',result:'Notebook reproduisant les scénarios, seuils critiques et conditions menant à l\'équilibre.',skills:['Lotka-Volterra','Équations différentielles','Python','MATLAB']},
-  {cat:'num',date:'Avr. 2024',title:'Modèles de dynamique des populations (Lotka-Volterra)',pb:'Simuler systèmes non linéaires (prédateur-proie, scénarios "zombies").',result:'Notebooks/figures pédagogiques pour expliquer les comportements.',skills:['EDO','Intégration numérique','MATLAB']},
-  {cat:'num',date:'Fév.–Mars 2024',title:'Schémas d\'Euler (explicite/implicite) & stabilité',pb:'Résoudre numériquement des EDO et étudier stabilité/erreur.',result:'Illustrations claires des limites/avantages de chaque schéma.',skills:['EDO','Schémas numériques','Octave','MATLAB']},
-  {cat:'num',date:'Avr.–Mai 2024',title:'Solveurs itératifs linéaires (Jacobi, Gauss-Seidel)',pb:'Résoudre Ax=b pour grandes matrices creuses.',result:'Base de comparaison pour cours d\'Analyse Numérique.',skills:['Algorithmes itératifs','Critères d\'arrêt','MATLAB']},
-
-  {cat:'sas',date:'Mai 2025',title:'Target Gift Flag — Gradient Boosting',pb:'Classer des donateurs potentiels.',result:'Gain de précision vs baseline, guidelines de ciblage.',skills:['Gradient Boosting','Courbes de performance','SAS','Excel']},
-  {cat:'sas',date:'Mai 2024',title:'Organics — Régression logistique (propension d\'achat)',pb:'Prédire la probabilité d\'acheter des produits biologiques.',result:'Score simple, interprétable, prêt pour ciblage marketing.',skills:['Régression logistique','AUC/Gini/KS','Lift/gains','SAS','Excel']}
+const CATS={ml:{label:'Machine Learning',color:'#2A4B9B'},dl:{label:'Deep Learning',color:'#C0392B'},nlp:{label:'NLP / Text Mining',color:'#7D3C98'},geo:{label:'Géospatial',color:'#1A6B3A'},num:{label:'Méthodes Numériques',color:'#784212'},sas:{label:'SAS / Analytics',color:'#1A5276'}};
+const PROJS=[
+  {cat:'ml',date:'Mars–Juin 2025',title:'Qualité de l\'air : analyse & prévision des polluants urbains',pb:'Anticiper les pics de pollution en milieu urbain.',result:'Notebooks comparant les stratégies de prévision avec cartes.',skills:['ARIMA','Prophet','GBM','Folium','Python']},
+  {cat:'ml',date:'Juin 2024',title:'Prédiction d\'élections présidentielles',pb:'Estimer le score d\'élections à partir d\'historiques.',result:'Pipeline réplicable + notebook clair.',skills:['LogReg','SVM','Random Forest','Python']},
+  {cat:'ml',date:'Mai 2024',title:'Pricing de l\'immobilier (Housing Prices)',pb:'Prédire les prix de vente à partir de caractéristiques structurées.',result:'Modèle de pricing reproductible.',skills:['Ridge','Lasso','XGBoost','Pipeline','Python']},
+  {cat:'ml',date:'Jan.–Fév. 2024',title:'Classification Iris de Fisher',pb:'Classifier des espèces d\'iris à partir de mesures.',result:'Benchmark pédagogique biais/variance.',skills:['KNN','SVM','GridSearchCV','Python']},
+  {cat:'ml',date:'Déc. 2023',title:'Sur-apprentissage & échantillonnage',pb:'Comprendre l\'overfitting et l\'impact des splits.',result:'Recommandations pratiques sur la taille d\'échantillon.',skills:['Learning curves','Validation croisée','Python']},
+  {cat:'ml',date:'Août–Sept. 2025',title:'Assurance — classification/risque',pb:'Prédire un événement (sinistre, souscription ou churn).',result:'Scorecard simple et interprétable.',skills:['Régression logistique','Boosting','AUC/Gini','SAS']},
+  {cat:'dl',date:'Jan. 2024',title:'CNN — Fashion MNIST (Zalando)',pb:'Classer des images de vêtements avec CNN.',result:'Amélioration nette vs baseline.',skills:['CNN','PyTorch','Keras','TensorBoard']},
+  {cat:'dl',date:'Nov. 2023',title:'Deep Learning : Introduction aux CNN',pb:'Construire une boîte à outils pédagogique pour CNN.',result:'Support de référence pour les CNN.',skills:['PyTorch','Keras','Convolution']},
+  {cat:'dl',date:'2024',title:'Computer Vision — Classification d\'images',pb:'Classification d\'images par réseaux convolutifs.',result:'Évaluation complète (précision, rappel, F1).',skills:['Keras','CNN','Python']},
+  {cat:'nlp',date:'Juil.–Août 2025',title:'Exploration d\'opinions & détection de polarité',pb:'Analyser le sentiment dans des textes.',result:'Classifieur baseline fiable et déployable.',skills:['TF-IDF','Embeddings','Naïve Bayes','SVM','Python']},
+  {cat:'nlp',date:'Août 2025',title:'Reconnaissance vocale (prototype)',pb:'Chaîne audio → texte/commande.',result:'Base technique pour projet ASR.',skills:['recvoc','I/O audio','Python']},
+  {cat:'nlp',date:'2025',title:'Détection de commentaires malveillants (spam)',pb:'Classifier des commentaires spam.',result:'Random Forest avec validation croisée.',skills:['NLP','TF-IDF','Random Forest','Python']},
+  {cat:'geo',date:'Avr.–Mai 2025',title:'Géodonnées — Classification & cartographie',pb:'Analyser des phénomènes spatiaux.',result:'Notebook étude géo + modèles.',skills:['GeoDataFrame','Folium','CRS','Python']},
+  {cat:'geo',date:'Mai 2025',title:'Localisation des cinémas (Geo data)',pb:'Manipuler un jeu géographique pour analyses simples.',result:'Cartes lisibles et réutilisables.',skills:['Projection CRS','Cartes de densité','Folium']},
+  {cat:'num',date:'Mai–Juin 2025',title:'Dynamiques proies–prédateurs avec ressource',pb:'Comprendre les régimes d\'un système avec ressource limitée.',result:'Scénarios, seuils critiques et conditions d\'équilibre.',skills:['Lotka-Volterra','EDO','Python','MATLAB']},
+  {cat:'num',date:'Avr. 2024',title:'Modèles de dynamique des populations',pb:'Simuler systèmes non linéaires (prédateur-proie).',result:'Notebooks pédagogiques.',skills:['EDO','Intégration numérique','MATLAB']},
+  {cat:'num',date:'Fév.–Mars 2024',title:'Schémas d\'Euler & stabilité',pb:'Résoudre numériquement des EDO.',result:'Illustrations des limites de chaque schéma.',skills:['EDO','Schémas numériques','MATLAB']},
+  {cat:'num',date:'Avr.–Mai 2024',title:'Solveurs itératifs (Jacobi, Gauss-Seidel)',pb:'Résoudre Ax=b pour grandes matrices creuses.',result:'Base de comparaison pour Analyse Numérique.',skills:['Algorithmes itératifs','MATLAB']},
+  {cat:'sas',date:'Mai 2025',title:'Target Gift Flag — Gradient Boosting',pb:'Classer des donateurs potentiels.',result:'Gain de précision vs baseline.',skills:['Gradient Boosting','SAS','Excel']},
+  {cat:'sas',date:'Mai 2024',title:'Organics — Régression logistique',pb:'Prédire la probabilité d\'achat de produits biologiques.',result:'Score interprétable pour ciblage marketing.',skills:['Régression logistique','AUC/Gini','SAS','Excel']}
 ];
 
-let currentCat = 'all';
-
-function filterCat(cat, btn) {
-  currentCat = cat;
-  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderProjects();
-}
-
-function renderProjects() {
-  const container = document.getElementById('proj-container');
-  container.innerHTML = '';
-  const cats = currentCat === 'all' ? Object.keys(CATS) : [currentCat];
-  cats.forEach(cat => {
-    const items = PROJS.filter(p => p.cat === cat);
-    if (!items.length) return;
-    const sec = document.createElement('div');
-    sec.className = 'cat-section';
-    sec.innerHTML = `<div class="cat-header">
-      <div class="cat-dot" style="background:${CATS[cat].color}"></div>
-      <span class="cat-name" style="color:${CATS[cat].color}">${CATS[cat].label}</span>
-      <span class="cat-count">${items.length} projet${items.length>1?'s':''}</span>
-    </div>
-    <div class="proj-grid">${items.map(p=>`
-      <div class="proj-card" style="border-top-color:${CATS[p.cat].color}">
-        <div class="proj-date">${p.date}</div>
-        <div class="proj-title">${p.title}</div>
-        <div class="proj-pb"><strong style="font-weight:600">Problème :</strong> ${p.pb}</div>
-        <div class="proj-result">✓ ${p.result}</div>
-        <div class="proj-skills">${p.skills.map(s=>`<span class="pskill">${s}</span>`).join('')}</div>
-      </div>`).join('')}
-    </div>`;
-    container.appendChild(sec);
+let cc='all';
+function filterCat(cat,btn){cc=cat;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderP();}
+function renderP(){
+  const c=document.getElementById('proj-container');c.innerHTML='';
+  const cats=cc==='all'?Object.keys(CATS):[cc];
+  cats.forEach(cat=>{
+    const items=PROJS.filter(p=>p.cat===cat);if(!items.length)return;
+    const sec=document.createElement('div');sec.className='cat-section';
+    sec.innerHTML=`<div class="cat-header"><div class="cat-dot" style="background:${CATS[cat].color}"></div><span class="cat-name" style="color:${CATS[cat].color}">${CATS[cat].label}</span><span class="cat-count">${items.length} projet${items.length>1?'s':''}</span></div><div class="proj-grid">${items.map(p=>`<div class="proj-card" style="border-top-color:${CATS[p.cat].color}"><div class="proj-date">${p.date}</div><div class="proj-title">${p.title}</div><div class="proj-pb"><strong style="font-weight:600">Problème :</strong> ${p.pb}</div><div class="proj-result">✓ ${p.result}</div><div class="proj-skills">${p.skills.map(s=>`<span class="pskill">${s}</span>`).join('')}</div></div>`).join('')}</div>`;
+    c.appendChild(sec);
   });
 }
-
-renderProjects();
+renderP();
 </script>
