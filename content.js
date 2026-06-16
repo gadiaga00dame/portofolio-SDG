@@ -6,7 +6,6 @@ export const CONTENT = {
       eyebrow: "Étudiant Ingénieur · Polytech Lyon",
       subtitle: "Étudiant ingénieur · Mathématiques Appliquées & Modélisation",
       roles: ["Data Scientist en formation", "Deep Learning & Simulation numérique", "Modélisation & Calcul Haute Performance", "Méthodes numériques & EDP", "Statistiques & Probabilités", "Disponible en alternance · sept. 2026"],
-      tagline: "Je transforme des données et des modèles mathématiques en outils réellement exploitables.",
       ctaProjects: "Voir mes projets", ctaContact: "Me contacter", ctaCv: "Télécharger mon CV",
       pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4ᵉ année", pillAvail: "Alternance dès sept. 2026"
     },
