@@ -1,8 +1,13 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serigne Dame GADIAGA — Portfolio</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --c1:#2A4B9B;--c2:#C0392B;--c3:#1A6B3A;--c4:#7D3C98;--c6:#784212;
+  --c1:#2A4B9B;--c2:#C0392B;--c3:#1A6B3A;--c4:#7D3C98;--c5:#E67E22;--c6:#784212;--c7:#0E7490;--c8:#6D28D9;
   --bg:#FFFFFF;--bg2:#F7F8FC;--bg3:#EEF0F8;
   --txt:#1A1A2E;--txt2:#4A4A6A;--txt3:#8888AA;--border:#D8DCEA;
 }
@@ -38,6 +43,7 @@ nav{background:#fff;border-bottom:2px solid var(--c1);padding:0 2.5rem;display:f
 .hero-meta{display:flex;gap:1.25rem;margin-top:1.25rem;flex-wrap:wrap}
 .hero-meta span{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3)}
 .hero-photo{width:155px;height:190px;object-fit:cover;object-position:center top;border-radius:8px;border:2px solid var(--border);box-shadow:0 4px 18px rgba(42,75,155,.13);flex-shrink:0;animation:fadeIn .9s .2s ease both;opacity:0}
+
 
 /* STATS */
 .stats-bar{background:var(--c1);padding:1.4rem 2.5rem}
@@ -93,6 +99,7 @@ hr.div{border:none;border-top:1px solid var(--border)}
 .proj-skills{display:flex;flex-wrap:wrap;gap:4px;margin-top:.5rem}
 .pskill{font-family:'Segoe UI',sans-serif;font-size:10px;padding:2px 7px;border-radius:3px;background:var(--bg3);color:var(--txt2);border:1px solid var(--border)}
 
+
 /* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
 .skill-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1.1rem}
@@ -141,10 +148,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   nav{padding:0 1rem}.nav-links a:not(.btn-cv){display:none}
   .sec-wrap{padding:2rem 1.25rem}
+
 }
 </style>
+</head>
+<body>
 
-<div>
 <nav>
   <span class="nav-logo">S. D. GADIAGA</span>
   <div class="nav-links">
@@ -179,11 +188,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
   </div>
 </div>
 
+
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num" data-target="20">0</div><div class="stat-lbl">Projets académiques</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="37">0</div><div class="stat-lbl">Projets académiques</div></div>
     <div class="stat-item"><div class="stat-num" data-target="2">0</div><div class="stat-lbl">Stages en entreprise</div></div>
-    <div class="stat-item"><div class="stat-num" data-target="6">0</div><div class="stat-lbl">Langages maîtrisés</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="7">0</div><div class="stat-lbl">Langages maîtrisés</div></div>
     <div class="stat-item"><div class="stat-num" data-target="4">0</div><div class="stat-lbl">Années de formation</div></div>
   </div>
 </div>
@@ -193,8 +203,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
   <p class="sec-sub fade-up">Profil & parcours</p>
   <div class="about-grid">
     <div class="about-main fade-up">
-      <p>Étudiant en 4ᵉ année de cycle ingénieur à Polytech Lyon (Mathématiques Appliquées & Modélisation), je me spécialise dans la data science, le machine learning et l'analyse prédictive. Mon parcours allie rigueur mathématique — issu de CPGE MPSI — et compétences techniques solides en Python, R, SAS et SQL.</p>
-      <p style="margin-top:.85rem">J'ai conduit des projets dans des domaines variés : analyse climatique sur données Météo-France, prédiction juridique, NLP, computer vision, géospatiale et modélisation mathématique. Je recherche une alternance d'un an à partir de septembre 2026 (rythme 2 semaines / 2 semaines).</p>
+      <p>Étudiant en 4ᵉ année de cycle ingénieur à Polytech Lyon (Mathématiques Appliquées & Modélisation), je me spécialise dans la data science, le machine learning et l'analyse prédictive. Mon parcours allie rigueur mathématique — issu de CPGE MPSI — et compétences techniques solides en Python, R, SAS, MATLAB et SQL.</p>
+      <p style="margin-top:.85rem">J'ai conduit des projets dans des domaines variés : apprentissage profond sur données géophysiques, simulation numérique d'EDP, analyse climatique sur données Météo-France, modélisation multiphysique avec COMSOL, NLP, géospatiale et inférence bayésienne. Je recherche une alternance d'un an à partir de septembre 2026 (rythme 2 semaines / 2 semaines).</p>
     </div>
     <div class="about-side">
       <div class="about-side-card fade-up"><h3>Langues</h3><p>🇫🇷 Français — C2 (maternel)<br>🇬🇧 Anglais — B2 (avancé)</p></div>
@@ -231,9 +241,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
         <div class="tl-period">Octobre 2024 — Décembre 2024</div>
         <ul class="tl-bullets">
           <li>Collecte et structuration de données juridiques (licenciements, contentieux prud'homaux)</li>
-          <li>Anonymisation et classification de données sensibles</li>
-          <li>Structuration d'une base de données relationnelle (PostgreSQL)</li>
-          <li>Analyse exploratoire et premiers modèles de prédiction des montants d'accords</li>
+          <li>Anonymisation et classification de données sensibles (RGPD)</li>
+          <li>Conception d'une base de données relationnelle sous PostgreSQL</li>
+          <li>Analyse exploratoire et premiers modèles prédictifs des montants d'accords</li>
         </ul>
       </div>
     </div>
@@ -244,7 +254,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
 
 <div class="sec-wrap" id="projects">
   <div class="sec-header fade-up"><span class="sec-title">Projets académiques</span><div class="sec-line"></div></div>
-  <p class="sec-sub fade-up">Classés par domaine</p>
+  <p class="sec-sub fade-up">Classés par domaine · <strong>37 projets</strong> dont 17 nouveaux en 2025–2026</p>
   <div class="filter-bar">
     <button class="fbtn active" onclick="filterCat('all',this)">Tous</button>
     <button class="fbtn" onclick="filterCat('ml',this)">Machine Learning</button>
@@ -252,6 +262,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
     <button class="fbtn" onclick="filterCat('nlp',this)">NLP</button>
     <button class="fbtn" onclick="filterCat('geo',this)">Géospatial</button>
     <button class="fbtn" onclick="filterCat('num',this)">Méthodes num.</button>
+    <button class="fbtn" onclick="filterCat('num2',this)">Simulation & EDP</button>
+    <button class="fbtn" onclick="filterCat('comsol',this)">Multiphysique & FEM</button>
+    <button class="fbtn" onclick="filterCat('stoch',this)">Stochastique</button>
     <button class="fbtn" onclick="filterCat('sas',this)">SAS / Analytics</button>
   </div>
   <div id="proj-container"></div>
@@ -267,14 +280,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
       <h3>Langages</h3>
       <div class="skill-bar-item"><div class="skill-bar-label"><span>Python</span><span>90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div></div>
       <div class="skill-bar-item"><div class="skill-bar-label"><span>R</span><span>85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div></div>
+      <div class="skill-bar-item"><div class="skill-bar-label"><span>MATLAB</span><span>82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="82"></div></div></div>
       <div class="skill-bar-item"><div class="skill-bar-label"><span>SQL</span><span>80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div></div>
       <div class="skill-bar-item"><div class="skill-bar-label"><span>SAS</span><span>75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="75"></div></div></div>
-      <div class="skill-bar-item"><div class="skill-bar-label"><span>MATLAB</span><span>70%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div></div>
     </div>
-    <div class="skill-card fade-up"><h3>ML / IA</h3><div class="skill-pills"><span class="spill">Scikit-learn</span><span class="spill">Keras</span><span class="spill">PyTorch</span><span class="spill">XGBoost</span><span class="spill">Random Forest</span><span class="spill">SVM</span></div></div>
-    <div class="skill-card fade-up"><h3>NLP & Vision</h3><div class="skill-pills"><span class="spill">TF-IDF</span><span class="spill">Embeddings</span><span class="spill">CNN</span><span class="spill">Naïve Bayes</span><span class="spill">NLTK</span></div></div>
-    <div class="skill-card fade-up"><h3>Statistiques</h3><div class="skill-pills"><span class="spill">ARIMA/SARIMA</span><span class="spill">Bayes</span><span class="spill">Chaînes de Markov</span><span class="spill">EDO</span><span class="spill">Séries temporelles</span></div></div>
-    <div class="skill-card fade-up"><h3>Données & BDD</h3><div class="skill-pills"><span class="spill">PostgreSQL</span><span class="spill">data.table</span><span class="spill">Pandas</span><span class="spill">ETL</span><span class="spill">GeoDataFrame</span></div></div>
+    <div class="skill-card fade-up"><h3>ML / IA</h3><div class="skill-pills"><span class="spill">Scikit-learn</span><span class="spill">Keras</span><span class="spill">PyTorch</span><span class="spill">XGBoost</span><span class="spill">Random Forest</span><span class="spill">SVM</span><span class="spill">AdamW</span><span class="spill">SSIM Loss</span></div></div>
+    <div class="skill-card fade-up"><h3>Deep Learning</h3><div class="skill-pills"><span class="spill">ResUNet</span><span class="spill">CBAM</span><span class="spill">CNN</span><span class="spill">Skip connections</span><span class="spill">MC Dropout</span><span class="spill">TensorBoard</span></div></div>
+    <div class="skill-card fade-up"><h3>NLP & Vision</h3><div class="skill-pills"><span class="spill">TF-IDF</span><span class="spill">Embeddings</span><span class="spill">Naïve Bayes</span><span class="spill">NLTK</span></div></div>
+    <div class="skill-card fade-up"><h3>Simulation numérique</h3><div class="skill-pills"><span class="spill">Volumes Finis</span><span class="spill">Éléments Finis</span><span class="spill">Différences Finies</span><span class="spill">GMRES / Krylov</span><span class="spill">Crank-Nicolson</span><span class="spill">Schéma de Roe</span><span class="spill">COMSOL</span><span class="spill">FreeFEM++</span></div></div>
+    <div class="skill-card fade-up"><h3>Statistiques & Proba</h3><div class="skill-pills"><span class="spill">ARIMA/SARIMA</span><span class="spill">MCMC / Metropolis-Hastings</span><span class="spill">Bayes</span><span class="spill">Chaînes de Markov</span><span class="spill">Files M/M/1</span><span class="spill">Séries temporelles</span></div></div>
+    <div class="skill-card fade-up"><h3>Données & BDD</h3><div class="skill-pills"><span class="spill">PostgreSQL</span><span class="spill">Pandas</span><span class="spill">data.table</span><span class="spill">ETL</span><span class="spill">GeoDataFrame</span></div></div>
     <div class="skill-card fade-up"><h3>Visualisation</h3><div class="skill-pills"><span class="spill">Power BI</span><span class="spill">Metabase</span><span class="spill">Matplotlib</span><span class="spill">Seaborn</span><span class="spill">Folium</span></div></div>
   </div>
 </div>
@@ -289,7 +304,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
       <div class="edu-school">Polytech Lyon</div>
       <div class="edu-degree">Cycle Ingénieur — Mathématiques Appliquées & Modélisation</div>
       <div class="edu-period">Sept. 2023 — Juil. 2027 · Lyon, France</div>
-      <p style="font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3);margin-top:.5rem">Spécialisation ML, analyse de données, modélisation numérique, séries temporelles</p>
+      <p style="font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--txt3);margin-top:.5rem">ML, analyse de données, modélisation numérique, EDP, volumes finis, éléments finis, stochastique</p>
     </div>
     <div class="edu-card fade-up" style="border-left-color:var(--c6)">
       <div class="edu-school" style="color:var(--c6)">ESMT-ESIGELEC — Collège Sacré Cœur</div>
@@ -326,17 +341,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);text-align:cente
   </div>
   <div style="margin-top:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.1rem;font-family:'Segoe UI',sans-serif" class="fade-up">
     <p style="font-size:12px;color:var(--txt3);margin-bottom:.3rem">Référence académique disponible sur demande</p>
-    <p style="font-size:13px;color:var(--txt2)">Prof. Ciuperca Ionel Sorinel — Responsable MAM, Polytech Lyon · <a href="mailto:ionel.cuiperca@univ-lyon1.fr" style="color:var(--c1);text-decoration:none">ionel.cuiperca@univ-lyon1.fr</a></p>
+    <p style="font-size:13px;color:var(--txt2)">Prof. Ciuperca Ionel Sorinel — Responsable MAM, Polytech Lyon · <a href="mailto:ionel.ciuperca@univ-lyon1.fr" style="color:var(--c1);text-decoration:none">ionel.ciuperca@univ-lyon1.fr</a></p>
   </div>
 </div>
 
 <footer>© 2026 Serigne Dame Gadiaga · Polytech Lyon · Lyon, France</footer>
-</div>
 
 <script>
 function s(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 
-const phrases=['Data Scientist en formation','Spécialiste Machine Learning','Analyste de données','Étudiant Ingénieur · Polytech Lyon','Disponible en alternance · Sept. 2026'];
+const phrases=['Data Scientist en formation','Spécialiste Deep Learning & Simulation','Analyste de données','Étudiant Ingénieur · Polytech Lyon','Disponible en alternance · Sept. 2026'];
 let pi=0,ci=0,del=false;
 const tw=document.getElementById('typewriter');
 function type(){
@@ -361,41 +375,95 @@ const sObs=new IntersectionObserver(entries=>{
 },{threshold:0.5});
 if(document.querySelector('.stats-bar'))sObs.observe(document.querySelector('.stats-bar'));
 
-const CATS={ml:{label:'Machine Learning',color:'#2A4B9B'},dl:{label:'Deep Learning',color:'#C0392B'},nlp:{label:'NLP / Text Mining',color:'#7D3C98'},geo:{label:'Géospatial',color:'#1A6B3A'},num:{label:'Méthodes Numériques',color:'#784212'},sas:{label:'SAS / Analytics',color:'#1A5276'}};
+const CATS={
+  ml:{label:'Machine Learning',color:'#2A4B9B'},
+  dl:{label:'Deep Learning',color:'#C0392B'},
+  nlp:{label:'NLP / Text Mining',color:'#7D3C98'},
+  geo:{label:'Géospatial',color:'#1A6B3A'},
+  num:{label:'Méthodes Numériques',color:'#784212'},
+  num2:{label:'Simulation numérique & EDP',color:'#0E7490'},
+  comsol:{label:'Multiphysique & Éléments Finis',color:'#6D28D9'},
+  stoch:{label:'Stochastique & Simulation',color:'#B45309'},
+  sas:{label:'SAS / Analytics',color:'#1A5276'}
+};
+
 const PROJS=[
+  // ── MACHINE LEARNING ──
   {cat:'ml',date:'Mars–Juin 2025',title:'Qualité de l\'air : analyse & prévision des polluants urbains',pb:'Anticiper les pics de pollution en milieu urbain.',result:'Notebooks comparant les stratégies de prévision avec cartes.',skills:['ARIMA','Prophet','GBM','Folium','Python']},
   {cat:'ml',date:'Juin 2024',title:'Prédiction d\'élections présidentielles',pb:'Estimer le score d\'élections à partir d\'historiques.',result:'Pipeline réplicable + notebook clair.',skills:['LogReg','SVM','Random Forest','Python']},
   {cat:'ml',date:'Mai 2024',title:'Pricing de l\'immobilier (Housing Prices)',pb:'Prédire les prix de vente à partir de caractéristiques structurées.',result:'Modèle de pricing reproductible.',skills:['Ridge','Lasso','XGBoost','Pipeline','Python']},
   {cat:'ml',date:'Jan.–Fév. 2024',title:'Classification Iris de Fisher',pb:'Classifier des espèces d\'iris à partir de mesures.',result:'Benchmark pédagogique biais/variance.',skills:['KNN','SVM','GridSearchCV','Python']},
   {cat:'ml',date:'Déc. 2023',title:'Sur-apprentissage & échantillonnage',pb:'Comprendre l\'overfitting et l\'impact des splits.',result:'Recommandations pratiques sur la taille d\'échantillon.',skills:['Learning curves','Validation croisée','Python']},
-  {cat:'ml',date:'Août–Sept. 2025',title:'Assurance — classification/risque',pb:'Prédire un événement (sinistre, souscription ou churn).',result:'Scorecard simple et interprétable.',skills:['Régression logistique','Boosting','AUC/Gini','SAS']},
+  {cat:'ml',date:'Août–Sept. 2025',title:'Assurance — classification & scoring de risque',pb:'Prédire un événement (sinistre, souscription ou churn).',result:'Scorecard simple et interprétable.',skills:['Régression logistique','Boosting','AUC/Gini','SAS']},
+
+  // ── DEEP LEARNING ──
+  {cat:'dl',date:'2025–2026',title:'Reconstruction du sous-sol par apprentissage profond — ResUNet + CBAM',pb:'Reconstruire des cartes de vitesse sismique à partir d\'enregistrements de surface.',result:'RMSE = 134,47 m/s · Corrélation = 0,9512 · 33,5M paramètres · 100 époques.',skills:['PyTorch','ResUNet','CBAM','AdamW','SSIM Loss','Kaggle']},
   {cat:'dl',date:'Jan. 2024',title:'CNN — Fashion MNIST (Zalando)',pb:'Classer des images de vêtements avec CNN.',result:'Amélioration nette vs baseline.',skills:['CNN','PyTorch','Keras','TensorBoard']},
   {cat:'dl',date:'Nov. 2023',title:'Deep Learning : Introduction aux CNN',pb:'Construire une boîte à outils pédagogique pour CNN.',result:'Support de référence pour les CNN.',skills:['PyTorch','Keras','Convolution']},
   {cat:'dl',date:'2024',title:'Computer Vision — Classification d\'images',pb:'Classification d\'images par réseaux convolutifs.',result:'Évaluation complète (précision, rappel, F1).',skills:['Keras','CNN','Python']},
+
+  // ── NLP ──
   {cat:'nlp',date:'Juil.–Août 2025',title:'Exploration d\'opinions & détection de polarité',pb:'Analyser le sentiment dans des textes.',result:'Classifieur baseline fiable et déployable.',skills:['TF-IDF','Embeddings','Naïve Bayes','SVM','Python']},
   {cat:'nlp',date:'Août 2025',title:'Reconnaissance vocale (prototype)',pb:'Chaîne audio → texte/commande.',result:'Base technique pour projet ASR.',skills:['recvoc','I/O audio','Python']},
   {cat:'nlp',date:'2025',title:'Détection de commentaires malveillants (spam)',pb:'Classifier des commentaires spam.',result:'Random Forest avec validation croisée.',skills:['NLP','TF-IDF','Random Forest','Python']},
+
+  // ── GÉOSPATIAL ──
   {cat:'geo',date:'Avr.–Mai 2025',title:'Géodonnées — Classification & cartographie',pb:'Analyser des phénomènes spatiaux.',result:'Notebook étude géo + modèles.',skills:['GeoDataFrame','Folium','CRS','Python']},
   {cat:'geo',date:'Mai 2025',title:'Localisation des cinémas (Geo data)',pb:'Manipuler un jeu géographique pour analyses simples.',result:'Cartes lisibles et réutilisables.',skills:['Projection CRS','Cartes de densité','Folium']},
+
+  // ── MÉTHODES NUMÉRIQUES (anciens) ──
   {cat:'num',date:'Mai–Juin 2025',title:'Dynamiques proies–prédateurs avec ressource',pb:'Comprendre les régimes d\'un système avec ressource limitée.',result:'Scénarios, seuils critiques et conditions d\'équilibre.',skills:['Lotka-Volterra','EDO','Python','MATLAB']},
   {cat:'num',date:'Avr. 2024',title:'Modèles de dynamique des populations',pb:'Simuler systèmes non linéaires (prédateur-proie).',result:'Notebooks pédagogiques.',skills:['EDO','Intégration numérique','MATLAB']},
   {cat:'num',date:'Fév.–Mars 2024',title:'Schémas d\'Euler & stabilité',pb:'Résoudre numériquement des EDO.',result:'Illustrations des limites de chaque schéma.',skills:['EDO','Schémas numériques','MATLAB']},
   {cat:'num',date:'Avr.–Mai 2024',title:'Solveurs itératifs (Jacobi, Gauss-Seidel)',pb:'Résoudre Ax=b pour grandes matrices creuses.',result:'Base de comparaison pour Analyse Numérique.',skills:['Algorithmes itératifs','MATLAB']},
+
+  // ── SIMULATION & EDP (nouveaux 2025-2026) ──
+  {cat:'num2',date:'2025–2026',title:'Solveurs linéaires à grande échelle — Gradient Conjugué vs méthodes directes',pb:'Comparer les performances de solveurs directs et itératifs sur des systèmes issus de la discrétisation du Laplacien en 1D, 2D et 3D (jusqu\'à N ≈ 10⁶ inconnues).',result:'Analyse de scalabilité et de conditionnement — avantage du CG préconditionné à grande échelle.',skills:['Gradient Conjugué','UMFPACK','Matrices creuses','Produit de Kronecker','MATLAB']},
+  {cat:'num2',date:'2025–2026',title:'Équation de la chaleur — Stabilité et convergence des schémas aux différences finies',pb:'Résoudre numériquement l\'équation parabolique de la chaleur et étudier la stabilité des schémas selon la condition CFL.',result:'Validation par solution analytique (séries de Fourier) — convergence ordre 2 avec Crank-Nicolson.',skills:['Euler explicite','Crank-Nicolson','CFL','Différences finies','Python','MATLAB']},
+  {cat:'num2',date:'2025–2026',title:'Fréquences propres d\'une structure de pont par méthodes de Krylov',pb:'Calculer les premiers modes de vibration d\'une structure élastique 2D/3D en résolvant un problème aux valeurs propres par algorithme d\'Arnoldi avec stratégie Shift-and-Invert.',result:'Extraction des 5 premiers modes propres — visualisation des déformées de flexion et torsion.',skills:['Arnoldi','Shift-and-Invert','GMRES','ILU','Équations de Navier','MATLAB/Python']},
+  {cat:'num2',date:'2025–2026',title:'Propagation d\'ondes et chocs — Schémas volumes finis pour lois de conservation',pb:'Résoudre numériquement des lois de conservation hyperboliques scalaires par des schémas volumes finis et analyser leurs propriétés de dissipation et dispersion.',result:'Comparaison Lax-Friedrichs, Lax-Wendroff, Upwind — mise en évidence des chocs et oscillations.',skills:['Volumes Finis','Lax-Wendroff','Upwind','Burgers','Python','MATLAB']},
+  {cat:'num2',date:'2025–2026',title:'Modélisation du trafic routier par schémas de Godunov et Roe',pb:'Simuler l\'écoulement de véhicules sur une route par une loi de conservation non-linéaire avec flux de Greenshields.',result:'Schéma de Roe converge avec précision sur la formation d\'embouteillages.',skills:['Schéma de Godunov','Schéma de Roe','Trafic routier','Loi non-linéaire','MATLAB']},
+  {cat:'num2',date:'2025–2026',title:'Simulation d\'un gaz isotherme — Schéma de Roe vectoriel sur système hyperbolique',pb:'Résoudre un système non-linéaire 2×2 de lois de conservation (modèle gaz isotherme) par décomposition en valeurs propres de la matrice de Roe.',result:'Propagation correcte des deux ondes caractéristiques — validation sur données analytiques.',skills:['Schéma de Roe vectoriel','Système 2×2','Décomposition spectrale','Python','MATLAB']},
+  {cat:'num2',date:'Juin 2025',title:'Équation de la chaleur 1D — Conditions de Neumann et discrétisation au bord',pb:'Implémenter des schémas d\'Euler progressif avec conditions de Neumann d\'ordre 2 et analyser la stabilité.',result:'Condition de stabilité ∆t/h² ≤ 0,5 validée numériquement.',skills:['Euler progressif','Neumann','Différences finies','Stabilité','MATLAB']},
+
+  // ── MULTIPHYSIQUE & FEM (nouveaux COMSOL 2025-2026) ──
+  {cat:'comsol',date:'2025–2026',title:'Simulation d\'écoulements de Navier-Stokes — Canal avec marche descendante',pb:'Modéliser un écoulement laminaire incompressible dans un canal avec singularité géométrique (backward facing step) et analyser l\'influence du nombre de Reynolds.',result:'Champ de vitesses et pression simulés — identification du point de recollement de l\'écoulement.',skills:['Navier-Stokes','CFD','Reynolds','COMSOL','Éléments Finis']},
+  {cat:'comsol',date:'2025–2026',title:'Analyse des contraintes dans une structure mécanique par éléments finis',pb:'Calculer les déplacements, déformées et la distribution des contraintes (critère de Von Mises) dans une pièce en acier soumise à des efforts extérieurs, en 2D et 3D.',result:'Champs de contraintes et déformations résolus — extension 3D par extrusion B-Rep.',skills:['Élastostatique','Plane stress','Von Mises','COMSOL','3D B-Rep']},
+  {cat:'comsol',date:'2025–2026',title:'Résolution d\'EDP elliptiques sur domaines singuliers — Équation de Poisson 2D',pb:'Résoudre l\'équation de Poisson sur un disque tronqué de différents angles et étudier la régularité de la solution selon la singularité géométrique.',result:'Perte de régularité en O visualisée — gradient de plus en plus singulier quand α → 0.',skills:['Poisson 2D','Singularité','Éléments Finis','COMSOL','FreeFEM++']},
+  {cat:'comsol',date:'2025–2026',title:'Modélisation multiphysique par formulation variationnelle — Forme faible et forme générale',pb:'Résoudre des problèmes couplés (potentiel électrique, diffusion thermique dans un pipeline, convection-diffusion) via les formulations faible et générale de COMSOL.',result:'Validation cross-formulation — profil de potentiel électrique et flux thermique restitués avec précision.',skills:['Forme faible','Forme générale','Couplage multiphysique','COMSOL','EDP couplées']},
+
+  // ── STOCHASTIQUE (nouveaux 2025-2026) ──
+  {cat:'stoch',date:'2025–2026',title:'Files d\'attente et processus de Poisson — Simulation d\'un système M/M/1',pb:'Simuler un processus de Poisson par deux méthodes (exponentielles et nombre de sauts), puis modéliser une file M/M/1 par la méthode des horloges et étudier son équilibre.',result:'Distribution stationnaire et temps de séjour validés — transition vers l\'instabilité visible pour µ < λ.',skills:['Processus de Poisson','File M/M/1','Méthode des horloges','Simulation','Python']},
+  {cat:'stoch',date:'2025–2026',title:'Inférence bayésienne par simulation MCMC — Algorithme de Metropolis-Hastings',pb:'Estimer une loi a posteriori par l\'algorithme de Metropolis-Hastings avec prior de Jeffreys et comparer à la densité analytique.',result:'Convergence de l\'échantillon MCMC (N=50 000) vers la loi a posteriori théorique.',skills:['MCMC','Metropolis-Hastings','Prior de Jeffreys','Inférence bayésienne','R','Python']},
+
+  // ── SAS / ANALYTICS ──
   {cat:'sas',date:'Mai 2025',title:'Target Gift Flag — Gradient Boosting',pb:'Classer des donateurs potentiels.',result:'Gain de précision vs baseline.',skills:['Gradient Boosting','SAS','Excel']},
   {cat:'sas',date:'Mai 2024',title:'Organics — Régression logistique',pb:'Prédire la probabilité d\'achat de produits biologiques.',result:'Score interprétable pour ciblage marketing.',skills:['Régression logistique','AUC/Gini','SAS','Excel']}
 ];
 
 let cc='all';
 function filterCat(cat,btn){cc=cat;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderP();}
+
 function renderP(){
   const c=document.getElementById('proj-container');c.innerHTML='';
   const cats=cc==='all'?Object.keys(CATS):[cc];
   cats.forEach(cat=>{
     const items=PROJS.filter(p=>p.cat===cat);if(!items.length)return;
     const sec=document.createElement('div');sec.className='cat-section';
-    sec.innerHTML=`<div class="cat-header"><div class="cat-dot" style="background:${CATS[cat].color}"></div><span class="cat-name" style="color:${CATS[cat].color}">${CATS[cat].label}</span><span class="cat-count">${items.length} projet${items.length>1?'s':''}</span></div><div class="proj-grid">${items.map(p=>`<div class="proj-card" style="border-top-color:${CATS[p.cat].color}"><div class="proj-date">${p.date}</div><div class="proj-title">${p.title}</div><div class="proj-pb"><strong style="font-weight:600">Problème :</strong> ${p.pb}</div><div class="proj-result">✓ ${p.result}</div><div class="proj-skills">${p.skills.map(s=>`<span class="pskill">${s}</span>`).join('')}</div></div>`).join('')}</div>`;
+    const cards=items.map(p=>{
+      return `<div class="proj-card" style="border-top-color:${CATS[p.cat].color}">
+        <div class="proj-date">${p.date}</div>
+        <div class="proj-title">${p.title}</div>
+        <div class="proj-pb"><strong style="font-weight:600">Problème :</strong> ${p.pb}</div>
+        <div class="proj-result">✓ ${p.result}</div>
+        <div class="proj-skills">${p.skills.map(sk=>`<span class="pskill">${sk}</span>`).join('')}</div>
+      </div>`;
+    }).join('');
+    sec.innerHTML=`<div class="cat-header"><div class="cat-dot" style="background:${CATS[cat].color}"></div><span class="cat-name" style="color:${CATS[cat].color}">${CATS[cat].label}</span><span class="cat-count">${items.length} projet${items.length>1?'s':''}</span></div><div class="proj-grid">${cards}</div>`;
     c.appendChild(sec);
   });
 }
 renderP();
 </script>
+</body>
+</html>
