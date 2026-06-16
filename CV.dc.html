@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{margin:0;background:#F5F7FB;}
+@keyframes sdgBlob{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(28px,-22px) scale(1.1);}}
+::selection{background:#2F55F0;color:#fff;}
+</style>
+</helmet>
+<div style="font-family:'IBM Plex Sans',system-ui,sans-serif;color:#1B2438;background:#F5F7FB;line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;">
+
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(245,247,251,.82);border-bottom:1px solid #E6EAF2;">
+  <div style="max-width:1040px;margin:0 auto;padding:0 28px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px;">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:#0A1124;font-size:14px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;"><span style="font-size:17px;">←</span>{{ backLabel }}</a>
+    <div style="display:flex;align-items:center;background:#EAEEF6;border-radius:9px;padding:3px;">
+      <button onClick="{{ setFr }}" style="border:none;cursor:pointer;padding:6px 11px;border-radius:7px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;background:{{ frBg }};color:{{ frColor }};transition:all .2s;">FR</button>
+      <button onClick="{{ setEn }}" style="border:none;cursor:pointer;padding:6px 11px;border-radius:7px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;background:{{ enBg }};color:{{ enColor }};transition:all .2s;">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header style="position:relative;background:#0A1124;color:#fff;overflow:hidden;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;">
+  <div style="position:absolute;top:-110px;right:-50px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(47,85,240,.45),transparent 70%);filter:blur(24px);animation:sdgBlob 15s ease-in-out infinite;"></div>
+  <div style="position:relative;max-width:1040px;margin:0 auto;padding:124px 28px 64px;">
+    <div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8FA6FF;">{{ kicker }}</div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.06;margin:18px 0 0;letter-spacing:-.025em;max-width:14em;">{{ titleText }}</h1>
+    <p style="color:#AEB8CC;font-size:1.1rem;margin:18px 0 0;max-width:40em;">{{ lead }}</p>
+  </div>
+</header>
+
+<div style="max-width:1040px;margin:0 auto;padding:54px 28px 80px;width:100%;flex:1;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+    <sc-for list="{{ items }}" as="c" hint-placeholder-count="3">
+      <div style="background:#fff;border:1px solid #E6EAF2;border-radius:20px;padding:30px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s;" style-hover="transform:translateY(-6px);box-shadow:0 24px 54px rgba(16,24,40,.13);border-color:#2F55F0;">
+        <span style="width:54px;height:54px;border-radius:15px;background:#EEF2FE;display:flex;align-items:center;justify-content:center;">
+          <sc-if value="{{ c.isChart }}" hint-placeholder-val="{{ false }}"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#2F55F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 16v-4M12 16V9M16 16v-7"/></svg></sc-if>
+          <sc-if value="{{ c.isWave }}" hint-placeholder-val="{{ false }}"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#2F55F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/><path d="M3 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/></svg></sc-if>
+          <sc-if value="{{ c.isCpu }}" hint-placeholder-val="{{ false }}"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#2F55F0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></sc-if>
+        </span>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.25rem;margin:20px 0 0;letter-spacing:-.01em;line-height:1.2;color:#0A1124;">{{ c.title }}</h3>
+        <p style="color:#5E6A7E;font-size:14.5px;margin:11px 0 0;flex:1;">{{ c.desc }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;">
+          <sc-for list="{{ c.tags }}" as="tg" hint-placeholder-count="4">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5E6A7E;border:1px solid #E6EAF2;border-radius:6px;padding:3px 8px;">{{ tg }}</span>
+          </sc-for>
+        </div>
+        <a href="{{ c.url }}" target="_blank" rel="noopener" download style="margin-top:22px;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#2F55F0;color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:13px 20px;border-radius:11px;font-family:'IBM Plex Sans',sans-serif;box-shadow:0 10px 24px rgba(47,85,240,.28);transition:transform .2s;" style-hover="transform:translateY(-2px);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+          {{ downloadLabel }}
+        </a>
+      </div>
+    </sc-for>
+  </div>
+</div>
+
+<footer style="background:#070C1A;color:#7A8499;padding:30px 0;">
+  <div style="max-width:1040px;margin:0 auto;padding:0 28px;font-size:13px;font-family:'IBM Plex Mono',monospace;">© 2026 Serigne Dame Gadiaga · Polytech Lyon · Lyon, France</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;fr&quot;,&quot;en&quot;],&quot;default&quot;:&quot;fr&quot;,&quot;tsType&quot;:&quot;'fr'|'en'&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'fr', content: null };
+
+  componentDidMount() {
+    const params = new URLSearchParams(location.search);
+    let lang = params.get('lang') || (this.props && this.props.defaultLang) || 'fr';
+    try {
+      const s = localStorage.getItem('sdg-portfolio-lang');
+      if (!params.get('lang') && (s === 'fr' || s === 'en')) lang = s;
+    } catch (e) {}
+    this.setState({ lang });
+    import('./content.js').then(m => { this.setState({ content: m }, () => { try { window.scrollTo(0, 0); } catch (e) {} }); });
+  }
+
+  _setLang(l) {
+    try { localStorage.setItem('sdg-portfolio-lang', l); } catch (e) {}
+    try {
+      const p = new URLSearchParams(location.search);
+      p.set('lang', l);
+      history.replaceState(null, '', location.pathname + '?' + p.toString());
+    } catch (e) {}
+    this.setState({ lang: l });
+  }
+
+  renderVals() {
+    const m = this.state.content;
+    if (!m) return {};
+    const { CVS } = m;
+    const lang = this.state.lang;
+    const ui = CVS.ui[lang];
+    const items = CVS.items.map(c => ({
+      title: c.title[lang], desc: c.desc[lang], tags: c.tags, url: c.url,
+      isChart: c.icon === 'chart', isWave: c.icon === 'wave', isCpu: c.icon === 'cpu'
+    }));
+    return {
+      items,
+      kicker: ui.kicker, titleText: ui.title, lead: ui.lead, downloadLabel: ui.download, backLabel: ui.back,
+      frBg: lang === 'fr' ? '#0A1124' : 'transparent', frColor: lang === 'fr' ? '#fff' : '#5E6A7E',
+      enBg: lang === 'en' ? '#0A1124' : 'transparent', enColor: lang === 'en' ? '#fff' : '#5E6A7E',
+      setFr: () => this._setLang('fr'), setEn: () => this._setLang('en')
+    };
+  }
+}
+</script>
+</body>
+</html>
