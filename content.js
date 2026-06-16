@@ -39,7 +39,6 @@ export const CONTENT = {
       eyebrow: "Engineering Student · Polytech Lyon",
       subtitle: "Engineering student · Applied Mathematics & Modelling",
       roles: ["Data Scientist in training", "Deep Learning & Numerical Simulation", "Modelling & High-Performance Computing", "Numerical methods & PDEs", "Statistics & Probability", "Available for apprenticeship · Sept. 2026"],
-      tagline: "I turn data and mathematical models into tools that are genuinely usable.",
       ctaProjects: "View my projects", ctaContact: "Get in touch", ctaCv: "Download my CV",
       pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4th year", pillAvail: "Apprenticeship from Sept. 2026"
     },
@@ -253,8 +252,8 @@ export const CONTACT_LINKS = {
 
 export const CVS = {
   ui: {
-    fr: { kicker: "Mon CV", title: "Quel profil vous intéresse ?", lead: "J'ai préparé plusieurs versions de mon CV selon le type de poste visé. Choisissez celle qui correspond le mieux à votre besoin.", download: "Télécharger ce CV", back: "Retour au portfolio" },
-    en: { kicker: "My résumé", title: "Which profile are you after?", lead: "I've prepared several versions of my résumé depending on the type of role. Pick the one that fits your need best.", download: "Download this CV", back: "Back to portfolio" }
+    fr: { kicker: "Mon CV", title: "Je m'adapte à votre secteur — choisissez votre profil", lead: "Trois expertises. Un seul ingénieur. À vous de choisir.", download: "Télécharger ce CV", back: "Retour au portfolio" },
+    en: { kicker: "My résumé", title: "I adapt to your field — pick your profile", lead: "Three expertises. One engineer. Your call.", download: "Download this CV", back: "Back to portfolio" }
   },
   items: [
     { id: "data", icon: "chart", title: { fr: "Data Science & IA", en: "Data Science & AI" }, desc: { fr: "Machine learning, deep learning, NLP et analyse de données.", en: "Machine learning, deep learning, NLP and data analysis." }, tags: ["Python", "Machine Learning", "Deep Learning", "NLP"], url: "CV_DataScience_ML_Serigne_Dame_GADIAGA.docx" },
