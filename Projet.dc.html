@@ -11,22 +11,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <style>
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{margin:0;background:#F5F7FB;}
 @keyframes sdgBlob{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-24px) scale(1.1);}}
 ::selection{background:#2F55F0;color:#fff;}
-.sdg-read-more-btn{display:inline-flex;align-items:center;gap:7px;margin-top:18px;background:none;border:1px solid #E6EAF2;border-radius:9px;padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#2F55F0;cursor:pointer;transition:all .2s;}
-.sdg-read-more-btn:hover{background:#EEF2FE;border-color:#2F55F0;}
-.sdg-hidden-sections{display:none;}
-.sdg-hidden-sections.open{display:block;}
-/* Bloquer clic droit sur le viewer */
+.sdg-see-result-btn{display:inline-flex;align-items:center;gap:8px;margin:8px auto 0;background:#2F55F0;border:none;border-radius:11px;padding:13px 24px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14px;color:#fff;cursor:pointer;transition:all .2s;box-shadow:0 10px 24px rgba(47,85,240,.28);}
+.sdg-see-result-btn:hover{transform:translateY(-2px);}
+.sdg-result-wrap{display:none;}
+.sdg-result-wrap.open{display:block;}
+.sdg-section-title{text-align:center;}
+.sdg-section-body{text-align:justify;}
+.sdg-section-body .katex-display{margin:1.1em 0;text-align:center;overflow-x:auto;}
+.sdg-section-body .katex{font-size:1.05em;}
 .sdg-viewer-wrap{-webkit-user-select:none;user-select:none;}
 .sdg-viewer-wrap iframe{pointer-events:auto;}
-/* Overlay transparent sur iframe pour bloquer clic droit natif */
 .sdg-viewer-shield{position:absolute;top:0;left:0;right:0;bottom:0;z-index:2;background:transparent;}
-/* PPT slides */
 .sdg-slide-img{width:100%;border-radius:0;display:block;}
 .sdg-slide-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#0A1124;}
 .sdg-slide-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;padding:8px 16px;cursor:pointer;transition:all .2s;}
@@ -54,55 +58,55 @@ body{margin:0;background:#F5F7FB;}
 <article>
   <header style="position:relative;background:#0A1124;color:#fff;overflow:hidden;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;">
     <div style="position:absolute;top:-120px;right:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,{{ glow }},transparent 70%);filter:blur(26px);animation:sdgBlob 15s ease-in-out infinite;"></div>
-    <div style="position:relative;max-width:1040px;margin:0 auto;padding:128px 28px 70px;">
-      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+    <div style="position:relative;max-width:1040px;margin:0 auto;padding:128px 28px 70px;text-align:center;">
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;">
         <span style="display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;color:#fff;background:{{ chipBg }};border:1px solid {{ chipBorder }};border-radius:7px;padding:5px 12px;"><span style="width:8px;height:8px;border-radius:50%;background:{{ color }};"></span>{{ domainLabel }}</span>
         <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA5B8;border:1px solid rgba(255,255,255,.14);border-radius:7px;padding:5px 12px;">{{ date }}</span>
       </div>
-      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.08;margin:22px 0 0;letter-spacing:-.025em;max-width:18em;">{{ title }}</h1>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.08;margin:22px auto 0;letter-spacing:-.025em;max-width:18em;">{{ title }}</h1>
     </div>
   </header>
 
   <div style="max-width:1040px;margin:0 auto;padding:60px 28px 40px;">
     <div style="display:flex;flex-wrap:wrap;gap:52px;align-items:flex-start;">
 
-      <!-- MAIN : sections avec lire la suite -->
       <main style="flex:1 1 420px;min-width:0;">
-        <sc-for list="{{ sectionsVisible }}" as="s" hint-placeholder-count="2">
-          <section data-reveal style="margin-bottom:40px;">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:{{ color }};">{{ s.num }}</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#5E6A7E;">{{ s.label }}</span>
-              <span style="flex:1;height:1px;background:#E6EAF2;"></span>
-            </div>
-            <p style="font-size:1.12rem;color:#33405A;margin:14px 0 0;max-width:42em;">{{ s.body }}</p>
-          </section>
-        </sc-for>
 
-        <!-- Bouton lire la suite -->
-        <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}">
-          <div id="sdg-read-more-wrap">
-            <button class="sdg-read-more-btn" id="sdg-read-more-btn" onClick="{{ toggleMore }}">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              {{ readMoreLabel }}
-            </button>
-            <div class="sdg-hidden-sections" id="sdg-extra-sections">
-              <sc-for list="{{ sectionsHidden }}" as="sh" hint-placeholder-count="1">
-                <section data-reveal style="margin-bottom:40px;margin-top:40px;">
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:{{ color }};">{{ sh.num }}</span>
-                    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#5E6A7E;">{{ sh.label }}</span>
-                    <span style="flex:1;height:1px;background:#E6EAF2;"></span>
-                  </div>
-                  <p style="font-size:1.12rem;color:#33405A;margin:14px 0 0;max-width:42em;">{{ sh.body }}</p>
-                </section>
-              </sc-for>
-            </div>
+        <section data-reveal style="margin-bottom:32px;">
+          <div class="sdg-section-title" style="display:flex;align-items:center;justify-content:center;gap:12px;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:{{ color }};">01</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#5E6A7E;">{{ problemLabel }}</span>
           </div>
-        </sc-if>
+          <p class="sdg-section-body sdg-math" style="font-size:1.12rem;color:#33405A;margin:16px auto 0;max-width:42em;">{{ problemBody }}</p>
+        </section>
+
+        <div style="text-align:center;margin-bottom:8px;">
+          <button class="sdg-see-result-btn" id="sdg-see-result-btn" onClick="{{ toggleResult }}">
+            <span id="sdg-see-result-label">{{ seeResultLabel }}</span>
+            <svg id="sdg-see-result-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .25s;"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="sdg-result-wrap" id="sdg-result-wrap">
+          <section data-reveal style="margin-top:36px;">
+            <div class="sdg-section-title" style="display:flex;align-items:center;justify-content:center;gap:12px;">
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:{{ color }};">02</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#5E6A7E;">{{ resultLabel }}</span>
+            </div>
+            <p class="sdg-section-body sdg-math" style="font-size:1.12rem;color:#33405A;margin:16px auto 0;max-width:42em;">{{ resultBody }}</p>
+          </section>
+
+          <sc-if value="{{ hasResources }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:32px;text-align:center;" id="sdg-resource-anchor">
+              <sc-if value="{{ multipleResources }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;" id="sdg-res-tabs"></div>
+              </sc-if>
+              <div style="width:100%;max-width:760px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 14px 40px rgba(16,24,40,.12);" id="sdg-viewer-root"></div>
+            </div>
+          </sc-if>
+        </div>
       </main>
 
-      <!-- SIDEBAR : compétences uniquement -->
       <aside style="flex:1 1 250px;max-width:320px;position:sticky;top:92px;">
         <div data-reveal style="background:#fff;border:1px solid #E6EAF2;border-top:3px solid {{ color }};border-radius:18px;padding:24px;box-shadow:0 1px 2px rgba(16,24,40,.03);">
           <h3 style="font-family:'IBM Plex Mono',monospace;font-size:12px;margin:0 0 14px;letter-spacing:.1em;text-transform:uppercase;color:#5E6A7E;font-weight:500;">{{ stackLabel }}</h3>
@@ -116,24 +120,6 @@ body{margin:0;background:#F5F7FB;}
     </div>
   </div>
 
-  <!-- VIEWER RESSOURCES : pleine largeur -->
-  <sc-if value="{{ hasResources }}" hint-placeholder-val="{{ false }}">
-    <div style="width:100%;background:#0A1124;margin-top:20px;" id="sdg-resource-viewer">
-      <div style="max-width:1040px;margin:0 auto;padding:32px 28px 0;">
-        <h3 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8FA6FF;font-weight:500;margin:0 0 20px;">{{ resourcesLabel }}</h3>
-      </div>
-
-      <!-- Tabs si plusieurs ressources -->
-      <sc-if value="{{ multipleResources }}" hint-placeholder-val="{{ false }}">
-        <div style="max-width:1040px;margin:0 auto;padding:0 28px 0;display:flex;gap:8px;flex-wrap:wrap;" id="sdg-res-tabs"></div>
-      </sc-if>
-
-      <!-- Le viewer lui-même -->
-      <div style="width:100%;margin-top:0;" id="sdg-viewer-root"></div>
-    </div>
-  </sc-if>
-
-  <!-- NAVIGATION précédent / suivant -->
   <div style="max-width:1040px;margin:0 auto;padding:48px 28px 90px;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;border-top:1px solid #E6EAF2;padding-top:36px;">
       <sc-if value="{{ prev }}" hint-placeholder-val="{{ true }}">
@@ -172,7 +158,7 @@ body{margin:0;background:#F5F7FB;}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;fr&quot;,&quot;en&quot;],&quot;default&quot;:&quot;fr&quot;,&quot;tsType&quot;:&quot;'fr'|'en'&quot;}}">
 class Component extends DCLogic {
-  state = { lang: 'fr', id: '', content: null, expanded: false, activeRes: 0, slideIdx: 0 };
+  state = { lang: 'fr', id: '', content: null, resultOpen: false, activeRes: 0, slideIdx: 0 };
 
   componentDidMount() {
     const params = new URLSearchParams(location.search);
@@ -187,20 +173,24 @@ class Component extends DCLogic {
       this.setState({ content: m }, () => {
         try { window.scrollTo(0, 0); } catch (e) {}
         this._setup();
-        this._buildViewer();
+        this._renderMath();
       });
     });
     this._onScroll = () => this._revealCheck();
     window.addEventListener('scroll', this._onScroll, { passive: true });
     window.addEventListener('resize', this._onScroll, { passive: true });
-    // Bloquer clic droit globalement sur la page
     document.addEventListener('contextmenu', e => {
       const el = e.target;
-      if (el.closest('#sdg-resource-viewer')) { e.preventDefault(); return false; }
+      if (el.closest('#sdg-resource-anchor')) { e.preventDefault(); return false; }
     });
   }
 
-  componentDidUpdate() { this._scan(); this._revealCheck(); this._buildViewer(); }
+  componentDidUpdate() {
+    this._scan();
+    this._revealCheck();
+    this._renderMath();
+    if (this.state.resultOpen) this._buildViewer();
+  }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this._onScroll);
@@ -265,6 +255,44 @@ class Component extends DCLogic {
     return m.PROJECTS.find(p => p.id === this.state.id) || null;
   }
 
+  _renderMath() {
+    if (typeof window.renderMathInElement !== 'function') {
+      if (!this._mathRetries) this._mathRetries = 0;
+      if (this._mathRetries < 40) { this._mathRetries++; setTimeout(() => this._renderMath(), 150); }
+      return;
+    }
+    document.querySelectorAll('.sdg-math').forEach(el => {
+      if (el.getAttribute('data-math-done') === '1') return;
+      try {
+        window.renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
+        el.setAttribute('data-math-done', '1');
+      } catch (e) {}
+    });
+  }
+
+  _toggleResult() {
+    const wrap = document.getElementById('sdg-result-wrap');
+    const label = document.getElementById('sdg-see-result-label');
+    const chev = document.getElementById('sdg-see-result-chev');
+    const btn = document.getElementById('sdg-see-result-btn');
+    if (!wrap) return;
+    const open = wrap.classList.toggle('open');
+    this.setState({ resultOpen: open }, () => { if (open) this._buildViewer(); this._renderMath(); });
+    if (chev) chev.style.transform = open ? 'rotate(180deg)' : 'none';
+    const lang = this.state.lang;
+    if (label) label.textContent = open ? (lang === 'fr' ? 'Masquer le résultat' : 'Hide result') : (lang === 'fr' ? 'Voir le résultat' : 'See the result');
+    if (btn) btn.style.display = open ? 'none' : 'inline-flex';
+    if (open) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   _buildViewer() {
     const root = document.getElementById('sdg-viewer-root');
     const tabsEl = document.getElementById('sdg-res-tabs');
@@ -277,25 +305,21 @@ class Component extends DCLogic {
     const idx = Math.min(this.state.activeRes, res.length - 1);
     const r = res[idx];
 
-    // Tabs
     if (tabsEl && res.length > 1) {
       tabsEl.innerHTML = res.map((rv, i) => {
         const label = rv.label ? (rv.label[lang] || rv.label.fr || '') : rv.url;
         const active = i === idx;
-        return '<button onclick="window.__sdgSetRes(' + i + ')" style="border:none;cursor:pointer;padding:8px 16px;border-radius:8px 8px 0 0;font-family:\'IBM Plex Mono\',monospace;font-size:12px;font-weight:500;background:' + (active ? '#fff' : 'rgba(255,255,255,.08)') + ';color:' + (active ? '#0A1124' : '#9AA5B8') + ';transition:all .2s;">' + label + '</button>';
+        return '<button onclick="window.__sdgSetRes(' + i + ')" style="border:none;cursor:pointer;padding:8px 16px;border-radius:8px;font-family:\'IBM Plex Mono\',monospace;font-size:12px;font-weight:500;background:' + (active ? '#2F55F0' : '#EEF2FE') + ';color:' + (active ? '#fff' : '#2F55F0') + ';transition:all .2s;">' + label + '</button>';
       }).join('');
     }
 
     window.__sdgSetRes = (i) => { this.setState({ activeRes: i, slideIdx: 0 }); };
 
-    // Render viewer selon type
     if (r.type === 'pdf') {
-      // PDF : iframe sans toolbar, sans download
       const url = r.url + '#toolbar=0&navpanes=0&scrollbar=1&view=FitH';
-      root.innerHTML = '<div style="position:relative;width:100%;background:#1a1a2e;" class="sdg-viewer-wrap"><iframe src="' + url + '" style="width:100%;height:80vh;border:none;display:block;" sandbox="allow-same-origin allow-scripts" referrerpolicy="no-referrer"></iframe></div>';
+      root.innerHTML = '<div style="position:relative;width:100%;background:#1a1a2e;" class="sdg-viewer-wrap"><iframe src="' + url + '" style="width:100%;height:75vh;border:none;display:block;" sandbox="allow-same-origin allow-scripts" referrerpolicy="no-referrer"></iframe></div>';
 
     } else if (r.type === 'ppt') {
-      // PPT : slides comme images
       const slides = r.slides || [];
       const si = Math.min(this.state.slideIdx, Math.max(0, slides.length - 1));
       const total = slides.length;
@@ -304,7 +328,7 @@ class Component extends DCLogic {
       root.innerHTML = total === 0
         ? '<div style="padding:40px;text-align:center;color:#9AA5B8;font-family:\'IBM Plex Mono\',monospace;font-size:13px;">Aucune slide disponible</div>'
         : '<div style="background:#000;width:100%;" class="sdg-viewer-wrap">'
-          + '<div style="position:relative;width:100%;"><img src="' + slides[si] + '" class="sdg-slide-img" alt="Slide ' + (si+1) + '" oncontextmenu="return false;" draggable="false" style="max-height:80vh;object-fit:contain;width:100%;"></div>'
+          + '<div style="position:relative;width:100%;"><img src="' + slides[si] + '" class="sdg-slide-img" alt="Slide ' + (si+1) + '" oncontextmenu="return false;" draggable="false" style="max-height:75vh;object-fit:contain;width:100%;"></div>'
           + '<div class="sdg-slide-nav">'
           + '<button class="sdg-slide-btn" ' + (si === 0 ? 'disabled' : '') + ' onclick="window.__sdgSlide(-1)">← ' + label_prev + '</button>'
           + '<span class="sdg-slide-counter">' + (si+1) + ' / ' + total + '</span>'
@@ -321,9 +345,7 @@ class Component extends DCLogic {
       };
 
     } else if (r.type === 'video') {
-      // Vidéo : player intégré
       let embedUrl = r.url;
-      // Convertir youtube watch?v= en embed
       const ytMatch = r.url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
       if (ytMatch) embedUrl = 'https://www.youtube.com/embed/' + ytMatch[1];
       root.innerHTML = '<div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;" class="sdg-viewer-wrap"><iframe src="' + embedUrl + '" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>';
@@ -348,40 +370,9 @@ class Component extends DCLogic {
     const p = PROJECTS[idx];
     const cat = CATS[p.cat];
 
-    // Toutes les sections du projet
-    const allSections = [
-      { num: '01', label: t.problem, body: p.problem[lang] },
-      { num: '02', label: t.result, body: p.result[lang] }
-    ];
-    // Sections supplémentaires si définies
-    if (p.sections) {
-      p.sections.forEach((s, i) => {
-        allSections.push({ num: String(i + 3).padStart(2, '0'), label: s.label[lang], body: s.body[lang] });
-      });
-    }
-
-    const VISIBLE = 2;
-    const sectionsVisible = allSections.slice(0, VISIBLE);
-    const sectionsHidden = allSections.slice(VISIBLE);
-    const hasMore = sectionsHidden.length > 0;
-
-    // Ressources
     const resources = p.resources || [];
     const hasResources = resources.length > 0;
     const multipleResources = resources.length > 1;
-
-    const toggleMore = () => {
-      const el = document.getElementById('sdg-extra-sections');
-      const btn = document.getElementById('sdg-read-more-btn');
-      if (!el) return;
-      const open = el.classList.toggle('open');
-      if (btn) {
-        btn.innerHTML = open
-          ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg> ' + (lang === 'fr' ? 'Réduire' : 'Show less')
-          : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg> ' + (lang === 'fr' ? 'Lire la suite' : 'Read more');
-      }
-      if (open) this._revealCheck();
-    };
 
     const prevP = idx > 0 ? PROJECTS[idx - 1] : null;
     const nextP = idx < PROJECTS.length - 1 ? PROJECTS[idx + 1] : null;
@@ -391,11 +382,11 @@ class Component extends DCLogic {
       title: p.title[lang], date: p.date[lang], skills: p.skills,
       domainLabel: cat.label[lang], color: cat.color,
       glow: this._hexToRgba(cat.color, 0.45), chipBg: this._hexToRgba(cat.color, 0.18), chipBorder: this._hexToRgba(cat.color, 0.35),
-      sectionsVisible, sectionsHidden, hasMore,
-      toggleMore,
-      readMoreLabel: lang === 'fr' ? 'Lire la suite' : 'Read more',
+      problemLabel: t.problem, resultLabel: t.result,
+      problemBody: p.problem[lang], resultBody: p.result[lang],
+      seeResultLabel: lang === 'fr' ? 'Voir le résultat' : 'See the result',
+      toggleResult: () => this._toggleResult(),
       stackLabel: t.stack,
-      resourcesLabel: t.resources,
       hasResources, multipleResources,
       prevLabel: t.prev, nextLabel: t.next,
       prev: prevP ? { title: prevP.title[lang], href: 'Projet_dc.html?id=' + prevP.id + '&lang=' + lang } : null,
