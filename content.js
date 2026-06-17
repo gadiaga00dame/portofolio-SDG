@@ -252,11 +252,40 @@ export const CONTACT_LINKS = {
 
 export const CVS = {
   ui: {
-    fr: { kicker: "Mon CV", title: "Je m'adapte à votre secteur — choisissez votre profil", lead: "Trois expertises. Un seul ingénieur. À vous de choisir.", download: "Télécharger ce CV", back: "Retour au portfolio" },
-    en: { kicker: "My résumé", title: "I adapt to your field — pick your profile", lead: "Three expertises. One engineer. Your call.", download: "Download this CV", back: "Back to portfolio" }
+    fr: {
+      kicker: "Mon CV",
+      title: "Mon profil principal — Data Science & IA",
+      lead: "Issu de mes deux stages en entreprise, c'est mon profil naturel.",
+      download: "Télécharger ce CV",
+      back: "Retour au portfolio",
+      otherProfilesBtn: "Voir mes 2 autres profils",
+      otherProfilesBtnClose: "Masquer les autres profils",
+      transitionTitle: "Pourquoi aussi la simulation et le calcul scientifique ?",
+      transitionP1: "Étudiant en mathématiques appliquées et modélisation, j'ai construit ces deux dernières années une solide expérience en data science à travers deux stages en entreprise, où j'ai appliqué la modélisation statistique, le machine learning et l'analyse prédictive à des problèmes concrets.",
+      transitionP2: "Aujourd'hui, l'essor de l'intelligence artificielle transforme profondément les métiers de l'ingénierie numérique : les méthodes de simulation, de calcul haute performance et d'optimisation convergent de plus en plus avec l'approche data-driven. C'est précisément cette convergence qui motive mon ouverture vers l'ingénierie de calcul et de simulation. Je souhaite mettre à profit mes compétences en analyse numérique, méthodes des éléments finis, solveurs itératifs et résolution d'EDP, développées en parallèle de mes expériences terrain, pour les inscrire dans des problématiques de simulation physique industrielle.",
+      transitionP3: "Rigoureux et autonome, je suis convaincu que c'est précisément à l'intersection de la data et du calcul scientifique que je peux apporter une contribution réelle."
+    },
+    en: {
+      kicker: "My résumé",
+      title: "My primary profile — Data Science & AI",
+      lead: "Built from my two company internships, this is my natural profile.",
+      download: "Download this CV",
+      back: "Back to portfolio",
+      otherProfilesBtn: "See my 2 other profiles",
+      otherProfilesBtnClose: "Hide other profiles",
+      transitionTitle: "Why also simulation and scientific computing?",
+      transitionP1: "As a student in applied mathematics and modelling, I have built over the past two years a solid background in data science through two company internships, applying statistical modelling, machine learning and predictive analysis to real-world problems.",
+      transitionP2: "Today, the rise of artificial intelligence is profoundly transforming digital engineering: simulation, high-performance computing and optimisation methods increasingly converge with the data-driven approach. It is precisely this convergence that drives my openness toward computational and simulation engineering. I aim to put to use my skills in numerical analysis, finite element methods, iterative solvers and PDE resolution — developed in parallel with my field experience — within industrial physical simulation problems.",
+      transitionP3: "Rigorous and autonomous, I am convinced that it is precisely at the intersection of data and scientific computing that I can make a real contribution."
+    }
   },
+  main: { id: "data", icon: "chart", title: { fr: "Data Science & IA", en: "Data Science & AI" }, desc: { fr: "Machine learning, deep learning, NLP et analyse de données.", en: "Machine learning, deep learning, NLP and data analysis." }, tags: ["Python", "Machine Learning", "Deep Learning", "NLP"], url: "CV_DataScience_ML_Serigne_Dame_GADIAGA.docx" },
   items: [
     { id: "data", icon: "chart", title: { fr: "Data Science & IA", en: "Data Science & AI" }, desc: { fr: "Machine learning, deep learning, NLP et analyse de données.", en: "Machine learning, deep learning, NLP and data analysis." }, tags: ["Python", "Machine Learning", "Deep Learning", "NLP"], url: "CV_DataScience_ML_Serigne_Dame_GADIAGA.docx" },
+    { id: "simu", icon: "wave", title: { fr: "Simulation Numérique & Modélisation", en: "Numerical Simulation & Modelling" }, desc: { fr: "Méthodes numériques, EDP, volumes & éléments finis, COMSOL.", en: "Numerical methods, PDEs, finite volumes & elements, COMSOL." }, tags: ["EDP", "Volumes Finis", "COMSOL", "MATLAB"], url: "CV_Simulation_Modelisation_Serigne_Dame_GADIAGA.docx" },
+    { id: "hpc", icon: "cpu", title: { fr: "Calcul Haute Performance", en: "High-Performance Computing" }, desc: { fr: "Solveurs à grande échelle, Krylov, calcul parallèle et optimisation.", en: "Large-scale solvers, Krylov methods, parallel computing and optimisation." }, tags: ["Krylov / GMRES", "Gradient Conjugué", "Matrices creuses", "C / C++"], url: "CV_HPC_Calcul_Scientifique_Serigne_Dame_GADIAGA.docx" }
+  ],
+  otherItems: [
     { id: "simu", icon: "wave", title: { fr: "Simulation Numérique & Modélisation", en: "Numerical Simulation & Modelling" }, desc: { fr: "Méthodes numériques, EDP, volumes & éléments finis, COMSOL.", en: "Numerical methods, PDEs, finite volumes & elements, COMSOL." }, tags: ["EDP", "Volumes Finis", "COMSOL", "MATLAB"], url: "CV_Simulation_Modelisation_Serigne_Dame_GADIAGA.docx" },
     { id: "hpc", icon: "cpu", title: { fr: "Calcul Haute Performance", en: "High-Performance Computing" }, desc: { fr: "Solveurs à grande échelle, Krylov, calcul parallèle et optimisation.", en: "Large-scale solvers, Krylov methods, parallel computing and optimisation." }, tags: ["Krylov / GMRES", "Gradient Conjugué", "Matrices creuses", "C / C++"], url: "CV_HPC_Calcul_Scientifique_Serigne_Dame_GADIAGA.docx" }
   ]
