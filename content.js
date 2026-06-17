@@ -261,7 +261,7 @@ export const CVS = {
       otherProfilesBtn: "Voir mes 2 autres profils",
       otherProfilesBtnClose: "Masquer les autres profils",
       transitionTitle: "Pourquoi aussi la simulation et le calcul scientifique ?",
-      transitionP1: "Étudiant en mathématiques appliquées et modélisation, j'ai construit ces deux dernières années une solide expérience en data science à travers deux stages en entreprise, où j'ai appliqué la modélisation statistique, le machine learning et l'analyse prédictive à des problèmes concrets.",
+      transitionP1: "J'ai construit ces deux dernières années une solide expérience en data science à travers deux stages en entreprise, où j'ai appliqué la modélisation statistique, le machine learning et l'analyse prédictive à des problèmes concrets.",
       transitionP2: "Aujourd'hui, l'essor de l'intelligence artificielle transforme profondément les métiers de l'ingénierie numérique : les méthodes de simulation, de calcul haute performance et d'optimisation convergent de plus en plus avec l'approche data-driven. C'est précisément cette convergence qui motive mon ouverture vers l'ingénierie de calcul et de simulation. Je souhaite mettre à profit mes compétences en analyse numérique, méthodes des éléments finis, solveurs itératifs et résolution d'EDP, développées en parallèle de mes expériences terrain, pour les inscrire dans des problématiques de simulation physique industrielle.",
       transitionP3: "Et je suis convaincu que c'est précisément à l'intersection de la data et du calcul scientifique que je peux apporter une contribution réelle."
     },
@@ -274,7 +274,7 @@ export const CVS = {
       otherProfilesBtn: "See my 2 other profiles",
       otherProfilesBtnClose: "Hide other profiles",
       transitionTitle: "Why also simulation and scientific computing?",
-      transitionP1: "As a student in applied mathematics and modelling, I have built over the past two years a solid background in data science through two company internships, applying statistical modelling, machine learning and predictive analysis to real-world problems.",
+      transitionP1: "I have built over the past two years a solid background in data science through two company internships, applying statistical modelling, machine learning and predictive analysis to real-world problems.",
       transitionP2: "Today, the rise of artificial intelligence is profoundly transforming digital engineering: simulation, high-performance computing and optimisation methods increasingly converge with the data-driven approach. It is precisely this convergence that drives my openness toward computational and simulation engineering. I aim to put to use my skills in numerical analysis, finite element methods, iterative solvers and PDE resolution — developed in parallel with my field experience — within industrial physical simulation problems.",
       transitionP3: "I am convinced that it is precisely at the intersection of data and scientific computing that I can make a real contribution."
     }
