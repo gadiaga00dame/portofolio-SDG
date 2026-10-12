@@ -5,16 +5,15 @@ export const CONTENT = {
     hero: {
       eyebrow: "Étudiant Ingénieur · Polytech Lyon",
       subtitle: "Étudiant ingénieur · Mathématiques Appliquées & Modélisation",
-      roles: ["Data Scientist en formation", "Deep Learning & Simulation numérique", "Modélisation & Calcul Haute Performance", "Méthodes numériques & EDP", "Statistiques & Probabilités", "Disponible en alternance · sept. 2026"],
+      roles: ["Data Scientist en formation", "Deep Learning & Simulation numérique", "Modélisation & Calcul Haute Performance", "Méthodes numériques & EDP", "Statistiques & Probabilités"],
       ctaProjects: "Voir mes projets", ctaContact: "Me contacter", ctaCv: "Télécharger mon CV",
-      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4ᵉ année", pillAvail: "Alternance dès sept. 2026"
+      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4ᵉ année"
     },
     stats: { projects: "Projets académiques", internships: "Expériences en entreprise", languages: "Langages maîtrisés", years: "Années de formation" },
     about: {
       kicker: "À propos", title: "Profil & parcours",
       p1: "Étudiant en 4ᵉ année de cycle ingénieur à Polytech Lyon (Mathématiques Appliquées & Modélisation), je me spécialise dans la data science, le machine learning, la simulation numérique et l'analyse prédictive. Mon parcours allie rigueur mathématique — issu de CPGE MPSI — et compétences techniques solides en Python, R, SAS, MATLAB et SQL.",
       p2: "J'ai conduit des projets dans des domaines variés : apprentissage profond sur données géophysiques, simulation numérique d'EDP, analyse climatique sur données Météo-France, modélisation multiphysique avec COMSOL, NLP, géospatiale et inférence bayésienne.",
-      p3: "Je recherche une alternance d'un an à partir de septembre 2026 (rythme 2 semaines / 2 semaines).",
       languagesTitle: "Langues", interestsTitle: "Centres d'intérêt"
     },
     experience: { kicker: "Expériences professionnelles", title: "Stages & missions" },
@@ -23,7 +22,7 @@ export const CONTENT = {
     education: { kicker: "Formation", title: "Parcours académique" },
     strengths: { kicker: "Atouts", title: "Ce qui me distingue" },
     contact: {
-      kicker: "Contact", title: "Disponible pour une alternance dès septembre 2026",
+      kicker: "Contact", title: "Restons en contact",
       lead: "N'hésitez pas à me contacter pour échanger sur un poste ou mon parcours.",
       email: "Email", phone: "Téléphone", location: "Localisation", linkedin: "LinkedIn",
       refTitle: "Référence académique disponible sur demande",
@@ -38,16 +37,15 @@ export const CONTENT = {
     hero: {
       eyebrow: "Engineering Student · Polytech Lyon",
       subtitle: "Engineering student · Applied Mathematics & Modelling",
-      roles: ["Data Scientist in training", "Deep Learning & Numerical Simulation", "Modelling & High-Performance Computing", "Numerical methods & PDEs", "Statistics & Probability", "Available for apprenticeship · Sept. 2026"],
+      roles: ["Data Scientist in training", "Deep Learning & Numerical Simulation", "Modelling & High-Performance Computing", "Numerical methods & PDEs", "Statistics & Probability"],
       ctaProjects: "View my projects", ctaContact: "Get in touch", ctaCv: "Download my CV",
-      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4th year", pillAvail: "Apprenticeship from Sept. 2026"
+      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4th year"
     },
     stats: { projects: "Academic projects", internships: "Company experiences", languages: "Languages mastered", years: "Years of training" },
     about: {
       kicker: "About", title: "Profile & background",
       p1: "A 4th-year engineering student at Polytech Lyon (Applied Mathematics & Modelling), I specialise in data science, machine learning, numerical simulation and predictive analysis. My path blends mathematical rigour — from CPGE MPSI preparatory classes — with solid technical skills in Python, R, SAS, MATLAB and SQL.",
       p2: "I have led projects across varied fields: deep learning on geophysical data, numerical simulation of PDEs, climate analysis on Météo-France data, multiphysics modelling with COMSOL, NLP, geospatial and Bayesian inference.",
-      p3: "I am looking for a one-year apprenticeship starting September 2026 (2 weeks / 2 weeks rhythm).",
       languagesTitle: "Languages", interestsTitle: "Interests"
     },
     experience: { kicker: "Professional experience", title: "Internships & missions" },
@@ -56,7 +54,7 @@ export const CONTENT = {
     education: { kicker: "Education", title: "Academic path" },
     strengths: { kicker: "Strengths", title: "What sets me apart" },
     contact: {
-      kicker: "Contact", title: "Available for an apprenticeship from September 2026",
+      kicker: "Contact", title: "Let's stay in touch",
       lead: "Feel free to reach out to discuss a role or my background.",
       email: "Email", phone: "Phone", location: "Location", linkedin: "LinkedIn",
       refTitle: "Academic reference available on request",
@@ -74,8 +72,8 @@ export const INTERESTS = {
 };
 
 export const LANGUAGES_SPOKEN = [
-  { label: { fr: "Français", en: "French" }, level: { fr: "C2 · maternel", en: "C2 · native" }, value: 100, flag: "🇫🇷" },
-  { label: { fr: "Anglais", en: "English" }, level: { fr: "B2 · avancé", en: "B2 · advanced" }, value: 72, flag: "🇬🇧" }
+  { label: { fr: "Français", en: "French" }, level: { fr: "C2 · maternel", en: "C2 · native" }, value: 100 },
+  { label: { fr: "Anglais", en: "English" }, level: { fr: "B2 · avancé", en: "B2 · advanced" }, value: 72 }
 ];
 
 export const STAT_VALUES = { projects: 37, internships: 3, languages: 7, years: 4 };
