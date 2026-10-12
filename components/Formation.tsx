@@ -1,3 +1,5 @@
+"use client";
+
 const formations = [
   {
     school: "Polytech Lyon — Université Claude Bernard Lyon 1",

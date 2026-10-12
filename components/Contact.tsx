@@ -1,3 +1,4 @@
+"use client";
 import { Mail, Linkedin, Github, MapPin, GraduationCap } from "lucide-react";
 
 const contacts = [
