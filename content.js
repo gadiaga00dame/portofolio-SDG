@@ -9,7 +9,7 @@ export const CONTENT = {
       ctaProjects: "Voir mes projets", ctaContact: "Me contacter", ctaCv: "Télécharger mon CV",
       pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4ᵉ année", pillAvail: "Alternance dès sept. 2026"
     },
-    stats: { projects: "Projets académiques", internships: "Stages en entreprise", languages: "Langages maîtrisés", years: "Années de formation" },
+    stats: { projects: "Projets académiques", internships: "Expériences en entreprise", languages: "Langages maîtrisés", years: "Années de formation" },
     about: {
       kicker: "À propos", title: "Profil & parcours",
       p1: "Étudiant en 4ᵉ année de cycle ingénieur à Polytech Lyon (Mathématiques Appliquées & Modélisation), je me spécialise dans la data science, le machine learning, la simulation numérique et l'analyse prédictive. Mon parcours allie rigueur mathématique — issu de CPGE MPSI — et compétences techniques solides en Python, R, SAS, MATLAB et SQL.",
@@ -42,7 +42,7 @@ export const CONTENT = {
       ctaProjects: "View my projects", ctaContact: "Get in touch", ctaCv: "Download my CV",
       pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4th year", pillAvail: "Apprenticeship from Sept. 2026"
     },
-    stats: { projects: "Academic projects", internships: "Company internships", languages: "Languages mastered", years: "Years of training" },
+    stats: { projects: "Academic projects", internships: "Company experiences", languages: "Languages mastered", years: "Years of training" },
     about: {
       kicker: "About", title: "Profile & background",
       p1: "A 4th-year engineering student at Polytech Lyon (Applied Mathematics & Modelling), I specialise in data science, machine learning, numerical simulation and predictive analysis. My path blends mathematical rigour — from CPGE MPSI preparatory classes — with solid technical skills in Python, R, SAS, MATLAB and SQL.",
@@ -78,9 +78,15 @@ export const LANGUAGES_SPOKEN = [
   { label: { fr: "Anglais", en: "English" }, level: { fr: "B2 · avancé", en: "B2 · advanced" }, value: 72, flag: "🇬🇧" }
 ];
 
-export const STAT_VALUES = { projects: 37, internships: 2, languages: 7, years: 4 };
+export const STAT_VALUES = { projects: 37, internships: 3, languages: 7, years: 4 };
 
 export const EXPERIENCES = [
+  {
+    company: "SNCF Voyageurs", place: "Saint-Denis",
+    role: { fr: "Alternant Ingénieur Data Science & IA", en: "Data Science & AI Engineering Apprentice" },
+    period: { fr: "Septembre 2026 — Septembre 2027", en: "September 2026 — September 2027" },
+    bullets: { fr: [], en: [] }
+  },
   {
     company: "Sodiaal Union", place: "Lyon",
     role: { fr: "Stagiaire Data Science", en: "Data Science Intern" },
