@@ -12,7 +12,7 @@ export const CONTENT = {
     stats: { projects: "Projets académiques", internships: "Expériences en entreprise", languages: "Langages maîtrisés", years: "Années de formation" },
     about: {
       kicker: "À propos", title: "Profil & parcours",
-      p1: "Étudiant en 4ᵉ année de cycle ingénieur à Polytech Lyon (Mathématiques Appliquées & Modélisation), je me spécialise dans la data science, le machine learning, la simulation numérique et l'analyse prédictive. Mon parcours allie rigueur mathématique — issu de CPGE MPSI — et compétences techniques solides en Python, R, SAS, MATLAB et SQL.",
+      p1: "Étudiant en dernière année de cycle ingénieur à Polytech Lyon (Mathématiques Appliquées & Modélisation), je me spécialise dans la data science, le machine learning, la simulation numérique et l'analyse prédictive. Mon parcours allie rigueur mathématique — issu de CPGE MPSI — et compétences techniques solides en Python, R, SAS, MATLAB et SQL.",
       p2: "J'ai conduit des projets dans des domaines variés : apprentissage profond sur données géophysiques, simulation numérique d'EDP, analyse climatique sur données Météo-France, modélisation multiphysique avec COMSOL, NLP, géospatiale et inférence bayésienne.",
       languagesTitle: "Langues", interestsTitle: "Centres d'intérêt"
     },
@@ -26,7 +26,7 @@ export const CONTENT = {
       lead: "N'hésitez pas à me contacter pour échanger sur un poste ou mon parcours.",
       email: "Email", phone: "Téléphone", location: "Localisation", linkedin: "LinkedIn",
       refTitle: "Référence académique disponible sur demande",
-      refName: "Prof. Ciuperca Ionel Sorinel — Responsable MAM, Polytech Lyon", cta: "M'écrire un email"
+      refName: "Prof. Naima Debit — Responsable MAM, Polytech Lyon", cta: "M'écrire un email"
     },
     footer: "Polytech Lyon · Lyon, France",
     backTop: "Haut de page",
@@ -44,7 +44,7 @@ export const CONTENT = {
     stats: { projects: "Academic projects", internships: "Company experiences", languages: "Languages mastered", years: "Years of training" },
     about: {
       kicker: "About", title: "Profile & background",
-      p1: "A 4th-year engineering student at Polytech Lyon (Applied Mathematics & Modelling), I specialise in data science, machine learning, numerical simulation and predictive analysis. My path blends mathematical rigour — from CPGE MPSI preparatory classes — with solid technical skills in Python, R, SAS, MATLAB and SQL.",
+      p1: "A 5th-year engineering student at Polytech Lyon (Applied Mathematics & Modelling), I specialise in data science, machine learning, numerical simulation and predictive analysis. My path blends mathematical rigour — from CPGE MPSI preparatory classes — with solid technical skills in Python, R, SAS, MATLAB and SQL.",
       p2: "I have led projects across varied fields: deep learning on geophysical data, numerical simulation of PDEs, climate analysis on Météo-France data, multiphysics modelling with COMSOL, NLP, geospatial and Bayesian inference.",
       languagesTitle: "Languages", interestsTitle: "Interests"
     },
@@ -58,7 +58,7 @@ export const CONTENT = {
       lead: "Feel free to reach out to discuss a role or my background.",
       email: "Email", phone: "Phone", location: "Location", linkedin: "LinkedIn",
       refTitle: "Academic reference available on request",
-      refName: "Prof. Ciuperca Ionel Sorinel — Head of MAM, Polytech Lyon", cta: "Send me an email"
+      refName: "Prof. Naima Debit — Head of MAM, Polytech Lyon", cta: "Send me an email"
     },
     footer: "Polytech Lyon · Lyon, France",
     backTop: "Back to top",
