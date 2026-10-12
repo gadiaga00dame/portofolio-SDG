@@ -7,7 +7,7 @@ export const CONTENT = {
       subtitle: "Étudiant ingénieur · Mathématiques Appliquées & Modélisation",
       roles: ["Data Scientist en formation", "Deep Learning & Simulation numérique", "Modélisation & Calcul Haute Performance", "Méthodes numériques & EDP", "Statistiques & Probabilités"],
       ctaProjects: "Voir mes projets", ctaContact: "Me contacter", ctaCv: "Télécharger mon CV",
-      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4ᵉ année"
+      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 5ᵉ année"
     },
     stats: { projects: "Projets académiques", internships: "Expériences en entreprise", languages: "Langages maîtrisés", years: "Années de formation" },
     about: {
@@ -39,12 +39,12 @@ export const CONTENT = {
       subtitle: "Engineering student · Applied Mathematics & Modelling",
       roles: ["Data Scientist in training", "Deep Learning & Numerical Simulation", "Modelling & High-Performance Computing", "Numerical methods & PDEs", "Statistics & Probability"],
       ctaProjects: "View my projects", ctaContact: "Get in touch", ctaCv: "Download my CV",
-      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 4th year"
+      pillLocation: "Lyon, France", pillSchool: "Polytech Lyon · 5th year"
     },
     stats: { projects: "Academic projects", internships: "Company experiences", languages: "Languages mastered", years: "Years of training" },
     about: {
       kicker: "About", title: "Profile & background",
-      p1: "A 5th-year engineering student at Polytech Lyon (Applied Mathematics & Modelling), I specialise in data science, machine learning, numerical simulation and predictive analysis. My path blends mathematical rigour — from CPGE MPSI preparatory classes — with solid technical skills in Python, R, SAS, MATLAB and SQL.",
+      p1: "A final-year engineering student at Polytech Lyon (Applied Mathematics & Modelling), I specialise in data science, machine learning, numerical simulation and predictive analysis. My path blends mathematical rigour — from CPGE MPSI preparatory classes — with solid technical skills in Python, R, SAS, MATLAB and SQL.",
       p2: "I have led projects across varied fields: deep learning on geophysical data, numerical simulation of PDEs, climate analysis on Météo-France data, multiphysics modelling with COMSOL, NLP, geospatial and Bayesian inference.",
       languagesTitle: "Languages", interestsTitle: "Interests"
     },
