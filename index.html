@@ -168,11 +168,6 @@ body{margin:0;background:#F5F7FB;}
       </div>
       <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9AA5B8;">{{ totalLabel }}</span>
     </div>
-    <div data-reveal style="display:flex;flex-wrap:wrap;gap:9px;margin-top:28px;">
-      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="10">
-        <button onClick="{{ f.onClick }}" style="cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;padding:8px 15px;border-radius:999px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};transition:all .2s;">{{ f.label }}</button>
-      </sc-for>
-    </div>
     <div style="margin-top:36px;">
       <sc-for list="{{ groups }}" as="g" hint-placeholder-count="9">
         <div style="margin-bottom:46px;">
@@ -201,6 +196,31 @@ body{margin:0;background:#F5F7FB;}
           </div>
         </div>
       </sc-for>
+    </div>
+    <div data-reveal style="margin-top:12px;padding-top:40px;border-top:1px solid #E6EAF2;">
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.32rem;letter-spacing:-.01em;margin:0;color:#0A1124;">{{ t.projectsSec.othersTitle }}</h3>
+      <p style="color:#5E6A7E;font-size:14px;margin:9px 0 0;">{{ t.projectsSec.othersLead }}</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:30px;margin-top:28px;">
+        <sc-for list="{{ others }}" as="o" hint-placeholder-count="9">
+          <div>
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:{{ o.color }};flex:none;"></span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:{{ o.color }};">{{ o.label }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9AA5B8;">{{ o.count }}</span>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0;">
+              <sc-for list="{{ o.items }}" as="it" hint-placeholder-count="4">
+                <li style="margin-bottom:7px;">
+                  <a href="{{ it.href }}" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;text-decoration:none;color:#33405A;font-size:13.5px;line-height:1.42;padding:7px 10px;border-radius:8px;border:1px solid #EEF0F6;background:#fff;transition:border-color .2s,color .2s;" style-hover="border-color:{{ o.color }};color:#0A1124;">
+                    <span>{{ it.title }}</span>
+                    <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#9AA5B8;flex:none;">{{ it.date }}</span>
+                  </a>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
     </div>
   </div>
 </section>
@@ -465,7 +485,7 @@ class Component extends DCLogic {
   renderVals() {
     const m = this.state.content;
     if (!m) return {};
-    const { CONTENT, INTERESTS, LANGUAGES_SPOKEN, STAT_VALUES, EXPERIENCES, SKILLS, EDUCATION, STRENGTHS, FILTERS, CATS, PROJECTS, PROJECTS_TOTAL, CONTACT_LINKS } = m;
+    const { CONTENT, INTERESTS, LANGUAGES_SPOKEN, STAT_VALUES, EXPERIENCES, SKILLS, EDUCATION, STRENGTHS, CATS, PROJECTS, PROJECTS_TOTAL, FEATURED_GROUPS, CONTACT_LINKS } = m;
     const lang = this.state.lang, t = CONTENT[lang], seen = this.state.seen, A = '#2F55F0';
 
     const sections = [['about', t.nav.about], ['experience', t.nav.experience], ['projects', t.nav.projects], ['skills', t.nav.skills], ['education', t.nav.education], ['contact', t.nav.contact]];
@@ -482,14 +502,19 @@ class Component extends DCLogic {
     const experiences = EXPERIENCES.map(e => ({ company: e.company, place: e.place, role: e.role[lang], period: e.period[lang], bullets: e.bullets[lang] }));
 
     const cats = ['ml', 'dl', 'nlp', 'geo', 'num', 'num2', 'comsol', 'stoch', 'sas'];
-    const filter = this.state.filter;
-    const activeCats = filter === 'all' ? cats : [filter];
-    const groups = activeCats.map(id => {
+    const card = p => ({ id: p.id, title: p.title[lang], problem: p.problem[lang], result: p.result[lang], date: p.date[lang], skills: p.skills, href: 'Projet.dc.html?id=' + p.id + '&lang=' + lang });
+    // selection mise en avant, groupee par domaine de specialisation
+    const groups = FEATURED_GROUPS.map(g => {
+      const items = PROJECTS.filter(p => p.featured === g.id).sort((a, b) => (a.rank || 99) - (b.rank || 99)).map(card);
+      return { id: g.id, label: g.label[lang], color: g.color, count: items.length, items };
+    }).filter(g => g.count > 0);
+    // tous les autres projets, conserves en liste compacte par domaine
+    const others = cats.map(id => {
       const meta = CATS[id];
-      const items = PROJECTS.filter(p => p.cat === id).map(p => ({ id: p.id, title: p.title[lang], problem: p.problem[lang], result: p.result[lang], date: p.date[lang], skills: p.skills, href: 'Projet.dc.html?id=' + p.id + '&lang=' + lang }));
+      const items = PROJECTS.filter(p => p.cat === id && !p.featured).map(p => ({ title: p.title[lang], date: p.date[lang], href: 'Projet.dc.html?id=' + p.id + '&lang=' + lang }));
       return { id, label: meta.label[lang], color: meta.color, count: items.length, items };
     }).filter(g => g.count > 0);
-    const filters = FILTERS.map(f => ({ id: f.id, label: f.label[lang], onClick: () => this.setState({ filter: f.id }), bg: this.state.filter === f.id ? A : '#fff', color: this.state.filter === f.id ? '#fff' : '#1B2438', border: this.state.filter === f.id ? A : '#E6EAF2' }));
+    const featuredCount = groups.reduce((a, g) => a + g.count, 0);
 
     const skillLangs = SKILLS.languages.map(s => ({ name: s.name, value: s.value, width: (seen.skills ? s.value : 0) + '%' }));
     const skillGroups = SKILLS.groups.map(g => ({ title: g.title[lang], items: g.items }));
@@ -499,9 +524,9 @@ class Component extends DCLogic {
     const phone = CONTACT_LINKS.phoneValue;
 
     return {
-      t, lang, navLinks, stats, spokenLangs, interests, experiences, filters, groups, skillLangs, skillGroups, education, str,
+      t, lang, navLinks, stats, spokenLangs, interests, experiences, groups, others, skillLangs, skillGroups, education, str,
       problemLabel: t.projectsSec.problemLabel, viewLabel: t.projectsSec.view,
-      totalLabel: PROJECTS_TOTAL + ' ' + t.projectsSec.total,
+      totalLabel: featuredCount + ' ' + t.projectsSec.featuredWord + ' \u00b7 ' + PROJECTS_TOTAL + ' ' + t.projectsSec.total,
       frBg: lang === 'fr' ? '#0A1124' : 'transparent', frColor: lang === 'fr' ? '#fff' : '#5E6A7E',
       enBg: lang === 'en' ? '#0A1124' : 'transparent', enColor: lang === 'en' ? '#fff' : '#5E6A7E',
       setFr: () => this._setLang('fr'), setEn: () => this._setLang('en'),
